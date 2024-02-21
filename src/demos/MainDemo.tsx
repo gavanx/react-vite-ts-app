@@ -31,7 +31,7 @@ export default () => {
   return (
     <div>
       <h2>Demo:</h2>
-      <UseReactiveDemo />
+      {/* <UseReactiveDemo /> */}
       {/* <AutoBatchUpdate/> */}
       {/* {modules.map((Module, i) => <Module key={i} />)} */}
     </div>

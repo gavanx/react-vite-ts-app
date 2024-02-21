@@ -151,11 +151,10 @@ const TerminalTab = () => {
       {
         name: "solarized-light",
         prefs: {
-          // 'background-color': colorPaletteOverides[15],
-          // 'foreground-color': colorPaletteOverides[10],
-
-          "background-color": "#fdf6e3",
-          "foreground-color": "#657b83",
+          'background-color': colorPaletteOverides[15],
+          'foreground-color': colorPaletteOverides[11],
+          // "background-color": "#fdf6e3",
+          // "foreground-color": "#657b83",
           //'cursor-color': colorPaletteOverides[8],
           "cursor-color": "rgba(101, 123, 131, 0.5)",
         },
