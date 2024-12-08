@@ -5,6 +5,8 @@
  */
 import React, { useState, useRef, useTransition } from "react";
 
+import requestIdle from "./requestIdle";
+
 const Text = () => {
   const start = performance.now();
   while (performance.now() - start < 50) {}
@@ -26,11 +28,18 @@ export default () => {
       </button>
       <button
         onClick={() => {
-          // setB(100);
-          startTransition(() => setB(100));
+          setB(100);
+          // startTransition(() => setB(100));
         }}
       >
         long render
+      </button>
+      <button
+        onClick={() => {
+          requestIdle()
+        }}
+      >
+        requestIdle
       </button>
       <div>isPending: {isPending ? "true" : "false"}</div>
       <div ref={testRef}>a</div>
