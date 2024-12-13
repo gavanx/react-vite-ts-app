@@ -18,5 +18,5 @@ import "antd/dist/antd.css";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <QuillEditor />
+  <App />
 );
