@@ -17,6 +17,9 @@ import QuillEditor from "./playground/QuillEditor";
 import "antd/dist/antd.css";
 import "./index.css";
 
+import PageLeave from "./demos/PageLeave";
+import DocumentVisibility from "./demos/DocumentVisibility";
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <App />
+  <DocumentVisibility />
 );

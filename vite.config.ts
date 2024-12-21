@@ -11,5 +11,5 @@ export const vitePluginAddScriptVersion = {
 };
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), vitePluginAddScriptVersion],
+  plugins: [react()],
 });
