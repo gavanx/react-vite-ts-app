@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(100);
   console.log("组件渲染，count：", count);
 
   return (

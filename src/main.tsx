@@ -10,7 +10,7 @@ import UseTransitionPage from "./demos/UseTransitionPage";
 
 import RefObject from "./interview/RefObject";
 import SetCount from "./interview/SetCount";
-import ReactDemo from "./interview/React2-1";
+import ReactDemo from "./interview/React-setState-timeout";
 
 import QuillEditor from "./playground/QuillEditor";
 
@@ -21,5 +21,5 @@ import PageLeave from "./demos/PageLeave";
 import DocumentVisibility from "./demos/DocumentVisibility";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <DocumentVisibility />
+  <ReactDemo />
 );
