@@ -7,6 +7,8 @@ import SliceDemo from "./demos/SliceDemo";
 import ReRender from "./demos/ReRender";
 import UseTransition from "./demos/UseTransition";
 import UseTransitionPage from "./demos/UseTransitionPage";
+import UseStatePart from "./demos/UseStatePart";
+import UseRefStyle from "./demos/UseRefStyle";
 
 import RefObject from "./interview/RefObject";
 import SetCount from "./interview/SetCount";
@@ -21,5 +23,5 @@ import PageLeave from "./demos/PageLeave";
 import DocumentVisibility from "./demos/DocumentVisibility";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <ReactDemo />
+  <UseRefStyle />
 );
