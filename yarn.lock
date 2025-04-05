@@ -348,6 +348,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@mi/iam-web-react@^0.0.17":
+  version "0.0.16-1"
+  resolved "https://pkgs.d.xiaomi.net:443/artifactory/api/npm/mi-npm/@mi/iam-web-react/-/@mi/iam-web-react-0.0.16-1.tgz#5b189af4f981836e58810f94a1f654fbab5615ee"
+  integrity sha512-KlMPVwL2S/Gyu9h6r/TC3n9mBN6qGBBOKP5K4BxOR/IqfDojAa4KtwbQ1yV7eyupzjiC6aPwnaMwC88fu5KPhw==
+
 "@mixmark-io/domino@^2.2.0":
   version "2.2.0"
   resolved "https://pkgs.d.xiaomi.net:443/artifactory/api/npm/mi-npm/@mixmark-io/domino/-/domino-2.2.0.tgz#4e8ec69bf1afeb7a14f0628b7e2c0f35bdb336c3"
