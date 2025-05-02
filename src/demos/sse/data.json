@@ -1,0 +1,8 @@
+{
+  "data": {
+    "id": "0",
+    "choices": [{ "index": 0, "delta": { "content": "Hello", "role": "assistant" } }],
+    "created": 1733129200,
+    "model": "gpt-4o"
+  }
+}

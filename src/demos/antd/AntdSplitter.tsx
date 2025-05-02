@@ -18,7 +18,11 @@ const App: React.FC = () => {
         onResize={setSizes}
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', width: '700px' }}
       >
-        <Splitter.Panel size={sizes[0]} resizable={enabled}>
+        <Splitter.Panel
+          size={sizes[0]}
+          resizable={enabled}
+          collapsible={{ start: false, end: true }}
+        >
           <Desc text='First' />
         </Splitter.Panel>
         <Splitter.Panel size={sizes[1]}>

@@ -10,6 +10,7 @@ import UseTransitionPage from './demos/UseTransitionPage'
 import UseStatePart from './demos/UseStatePart'
 import UseRefStyle from './demos/UseRefStyle'
 import AntdSplitter from './demos/antd/AntdSplitter'
+import SSEX from './demos/sse/SSEXChat2'
 
 import RefObject from './interview/RefObject'
 import SetCount from './interview/SetCount'
@@ -24,4 +25,4 @@ import PageLeave from './demos/PageLeave'
 import DocumentVisibility from './demos/DocumentVisibility'
 import LocalStorage from './demos/LocalStorage2'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<AntdSplitter />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<SSEX />)
