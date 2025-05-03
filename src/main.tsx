@@ -24,5 +24,6 @@ import './index.css'
 import PageLeave from './demos/PageLeave'
 import DocumentVisibility from './demos/DocumentVisibility'
 import LocalStorage from './demos/LocalStorage2'
+import ImageEditor from './demos/image-editor'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<SSEX />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<ImageEditor />)

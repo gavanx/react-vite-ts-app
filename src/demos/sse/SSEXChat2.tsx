@@ -1,7 +1,9 @@
 import { UserOutlined } from '@ant-design/icons'
 import { Bubble, Sender, useXAgent, useXChat } from '@ant-design/x'
-import { Flex, type GetProp } from 'antd'
-import React from 'react'
+import { Button, Flex, type GetProp } from 'antd'
+import React, { useState } from 'react'
+import html2canvas from 'html2canvas'
+import ImageTool from './ImageTool'
 
 const roles: GetProp<typeof Bubble.List, 'roles'> = {
   ai: {
@@ -14,7 +16,7 @@ const roles: GetProp<typeof Bubble.List, 'roles'> = {
   },
 }
 
-const serverUrl = 'http://localhost:3000/sse'
+const serverUrl = 'http://localhost:3001/sse'
 const App = () => {
   const [content, setContent] = React.useState('')
 
@@ -26,9 +28,11 @@ const App = () => {
     agent,
   })
   console.log('xxxxxxxxxx ', messages)
+  const [canvasElement, setCanvasElement] = useState<HTMLCanvasElement | null>(null)
 
   return (
-    <Flex vertical gap='middle' style={{ width: 500 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: 500 }}>
+      <ImageTool canvasElement={canvasElement} />
       <Bubble.List
         roles={roles}
         style={{ maxHeight: 300 }}
@@ -38,6 +42,13 @@ const App = () => {
           content: message.data ? JSON.parse(message.data).message : message,
         }))}
       />
+      <div>
+        {new Array(20).fill(0).map((_, index) => (
+          <div>
+            {index} - {Math.random()}
+          </div>
+        ))}
+      </div>
       <Sender
         loading={agent.isRequesting()}
         value={content}
@@ -47,7 +58,19 @@ const App = () => {
           setContent('')
         }}
       />
-    </Flex>
+      {/* <iframe src='http://www.baidu.com' style={{ width: 500, height: 700 }}></iframe> */}
+      <Button
+        onClick={() =>
+          html2canvas(document.body, { useCORS: true }).then((canvas) => {
+            console.log(canvas)
+            // document.body.appendChild(canvas)
+            setCanvasElement(canvas)
+          })
+        }
+      >
+        截图
+      </Button>
+    </div>
   )
 }
 
