@@ -25,5 +25,6 @@ import PageLeave from './demos/PageLeave'
 import DocumentVisibility from './demos/DocumentVisibility'
 import LocalStorage from './demos/LocalStorage2'
 import ImageEditor from './demos/image-editor'
+import RouterApp from './demos/router/App'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<ImageEditor />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<RouterApp />)

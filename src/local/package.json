@@ -1,0 +1,11 @@
+{
+  "name": "react-local",
+  "version": "19.0.1",
+  "type": "module",
+  "scripts": {
+    "pub": "vnpm publish --tag xxxx"
+  },
+  "dependencies": {
+    "react": "^18.0.0-remotea.1"
+  }
+}
