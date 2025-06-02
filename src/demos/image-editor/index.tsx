@@ -1,5 +1,4 @@
 import { Button } from 'antd'
-import html2canvas from 'html2canvas'
 import ImageEditor from './ImageEditor'
 import { useState } from 'react'
 

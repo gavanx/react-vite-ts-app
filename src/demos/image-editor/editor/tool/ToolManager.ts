@@ -6,7 +6,6 @@ import Ellipse from './Ellipse'
 import Arrow from './Arrow'
 import Pen from './Pen'
 import Text from './Text'
-import { opacity } from 'html2canvas/dist/types/css/property-descriptors/opacity'
 
 export type EditorCallback = {
   onShowTools?: (x: number, y: number) => void

@@ -26,6 +26,21 @@ const App = () => {
   // Chat messages
   const { onRequest, messages } = useXChat({
     agent,
+    transformStream: new TransformStream<string, any>({
+      transform(chunk, controller) {
+        console.log('xxxxxxxxxx transform', chunk)
+        const DEFAULT_KV_SEPARATOR = 'data: '
+        const separatorIndex = chunk.lastIndexOf(DEFAULT_KV_SEPARATOR)
+        const value = chunk.slice(separatorIndex + DEFAULT_KV_SEPARATOR.length)
+        try {
+          const modalMessage = JSON.parse(value)
+          const content = modalMessage?.data.content
+          controller.enqueue(content)
+        } catch (error) {
+          controller.enqueue('')
+        }
+      },
+    })
   })
   console.log('xxxxxxxxxx ', messages)
   const [canvasElement, setCanvasElement] = useState<HTMLCanvasElement | null>(null)

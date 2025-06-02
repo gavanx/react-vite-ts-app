@@ -9,8 +9,10 @@ import UseTransition from './demos/UseTransition'
 import UseTransitionPage from './demos/UseTransitionPage'
 import UseStatePart from './demos/UseStatePart'
 import UseRefStyle from './demos/UseRefStyle'
+import UseStateInitial from './demos/hooks/UseStateInitial'
 import AntdSplitter from './demos/antd/AntdSplitter'
-import SSEX from './demos/sse/SSEXChat2'
+import SSEX from './demos/sse/AttatchmentDemo2'
+import BubbleDemo from './demos/sse/BubbleDemo'
 
 import RefObject from './interview/RefObject'
 import SetCount from './interview/SetCount'
@@ -27,4 +29,10 @@ import LocalStorage from './demos/LocalStorage2'
 import ImageEditor from './demos/image-editor'
 import RouterApp from './demos/router/App'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<RouterApp />)
+import QueryDemo from './demos/query/todo'
+import UploadDemo from './demos/antd/UploadDemo'
+import TooltipDemo from './demos/antd/TooltipDemo'
+import CopyToClipboard from './demos/tools/CopyToClipboard'
+import LoadImage from './demos/tools/LoadImage'
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<LoadImage />)
