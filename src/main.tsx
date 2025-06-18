@@ -34,5 +34,6 @@ import UploadDemo from './demos/antd/UploadDemo'
 import TooltipDemo from './demos/antd/TooltipDemo'
 import CopyToClipboard from './demos/tools/CopyToClipboard'
 import LoadImage from './demos/tools/LoadImage'
+import MarkdownImage from './demos/markdown/Image'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<LoadImage />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<TooltipDemo />)

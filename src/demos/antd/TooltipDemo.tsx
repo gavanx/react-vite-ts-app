@@ -65,14 +65,14 @@ function About() {
     render: (v) => <Tip value={v} />,
   }
 
-  const columns2 = Array.from({ length: 30 }).map((_, index) => ({
+  const columns2 = Array.from({ length: 5 }).map((_, index) => ({
     title: 'LongColumn' + index,
     dataIndex: 'LongColumn' + index,
     key: 'LongColumn' + index,
     ...ellipsisTableTooltip, // 注释掉这里用于是否取消ellipsis
   }))
 
-  const data2 = Array.from({ length: 50 }).map((_, index) => ({
+  const data2 = Array.from({ length: 18 }).map((_, index) => ({
     key: 'key' + index,
     ...columns2
       .map((col) => col.dataIndex)
@@ -85,7 +85,7 @@ function About() {
     <Table
       columns={columns2}
       dataSource={data2}
-      scroll={{ x: 5000, y: 600 }}
+      scroll={{ x: 1000 }}
       pagination={{ defaultPageSize: 50 }}
     />
   )

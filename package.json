@@ -21,6 +21,7 @@
     "html2canvas": "^1.4.1",
     "immer": "^10.1.1",
     "konva": "^9.3.20",
+    "markdown-it": "^14.1.0",
     "modern-copy-to-clipboard": "^0.1.4",
     "quill": "^1.3.7",
     "quill-markdown": "^1.5.0",
