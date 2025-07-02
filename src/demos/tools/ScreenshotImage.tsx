@@ -9,7 +9,7 @@ const src =
 export default () => {
   return (
     <div>
-      {/* <img src={src} /> */}
+      <img src={src} />
       {/* <img src={IconCloud} /> */}
       LoadImage
       <Button
