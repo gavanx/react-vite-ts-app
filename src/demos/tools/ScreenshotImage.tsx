@@ -25,6 +25,7 @@ export default () => {
               setTimeout(() => resolve(img), 500)
             }
           })
+          console.log('xxxxx', img)
         }}
       >
         load Image
@@ -34,7 +35,7 @@ export default () => {
         onClick={async () => {
           const child = await html2canvas(document.querySelector('div[id="root"]')!, {
             logging: true,
-            useCORS: true,
+            // useCORS: true,
           })
           document.body.appendChild(child)
         }}

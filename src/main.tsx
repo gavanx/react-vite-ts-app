@@ -27,7 +27,8 @@ import PageLeave from './demos/PageLeave'
 import DocumentVisibility from './demos/DocumentVisibility'
 import LocalStorage from './demos/LocalStorage2'
 import ImageEditor from './demos/image-editor'
-import RouterApp from './demos/router/App'
+import RouterApp from './demos/router/App3'
+import SnapDOMApp from './demos/snapdom/index'
 
 import QueryDemo from './demos/query/todo'
 import UploadDemo from './demos/antd/UploadDemo'
@@ -36,4 +37,4 @@ import CopyToClipboard from './demos/tools/CopyToClipboard'
 import ScreenshotImage from './demos/tools/ScreenshotImage'
 import MarkdownImage from './demos/markdown/Image'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<ScreenshotImage />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<SnapDOMApp />)

@@ -661,12 +661,12 @@
 
 "@tanstack/query-core@5.76.0":
   version "5.76.0"
-  resolved "http://npm.t.pt.miui.com/@tanstack/query-core/-/query-core-5.76.0.tgz#3b4d5d34ce307ba0cf7d1a3e90d7adcdc6c46be0"
+  resolved "http://npm.t.pt.miui.com/@tanstack/query-core/-/query-core-5.76.0.tgz"
   integrity sha512-FN375hb8ctzfNAlex5gHI6+WDXTNpe0nbxp/d2YJtnP+IBM6OUm7zcaoCW6T63BawGOYZBbKC0iPvr41TteNVg==
 
 "@tanstack/react-query@^5.76.1":
   version "5.76.1"
-  resolved "http://npm.t.pt.miui.com/@tanstack/react-query/-/react-query-5.76.1.tgz#ac8a19f99dfec1452a44fe22d46680c396c21152"
+  resolved "http://npm.t.pt.miui.com/@tanstack/react-query/-/react-query-5.76.1.tgz"
   integrity sha512-YxdLZVGN4QkT5YT1HKZQWiIlcgauIXEIsMOTSjvyD5wLYK8YVvKZUPAysMqossFJJfDpJW3pFn7WNZuPOqq+fw==
   dependencies:
     "@tanstack/query-core" "5.76.0"
@@ -891,6 +891,11 @@
   resolved "http://npm.t.pt.miui.com/@xobotyi/scrollbar-width/-/scrollbar-width-1.9.5.tgz"
   integrity sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==
 
+"@zumer/snapdom@^1.8.0":
+  version "1.8.0"
+  resolved "http://npm.t.pt.miui.com/@zumer/snapdom/-/snapdom-1.8.0.tgz#5d5f49f9d80f8b2c38ade8e2baa8e3cd2fea1725"
+  integrity sha512-+xjVImca5k/nUxh0yUcdwcRzLFwSzNwzEfzerlUIC8IOnW+ikengvZuSODUXdOi+T7xuLgpj0HTXf+cRjWW/0w==
+
 abab@^2.0.6:
   version "2.0.6"
   resolved "http://npm.t.pt.miui.com/abab/-/abab-2.0.6.tgz"
@@ -1049,7 +1054,7 @@ asynckit@^0.4.0:
 
 axios@^1.8.3:
   version "1.9.0"
-  resolved "http://npm.t.pt.miui.com/axios/-/axios-1.9.0.tgz#25534e3b72b54540077d33046f77e3b8d7081901"
+  resolved "http://npm.t.pt.miui.com/axios/-/axios-1.9.0.tgz"
   integrity sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==
   dependencies:
     follow-redirects "^1.15.6"
@@ -1439,7 +1444,7 @@ devlop@^1.0.0, devlop@^1.1.0:
 
 dom-helpers@^5.0.1:
   version "5.2.1"
-  resolved "http://npm.t.pt.miui.com/dom-helpers/-/dom-helpers-5.2.1.tgz#d9400536b2bf8225ad98fe052e029451ac40e902"
+  resolved "http://npm.t.pt.miui.com/dom-helpers/-/dom-helpers-5.2.1.tgz"
   integrity sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==
   dependencies:
     "@babel/runtime" "^7.8.7"
@@ -1483,7 +1488,7 @@ encodeurl@^2.0.0:
 
 entities@^4.4.0:
   version "4.5.0"
-  resolved "http://npm.t.pt.miui.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
+  resolved "http://npm.t.pt.miui.com/entities/-/entities-4.5.0.tgz"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
 
 entities@^6.0.0:
@@ -1719,7 +1724,7 @@ finalhandler@^2.1.0:
 
 follow-redirects@^1.15.6:
   version "1.15.9"
-  resolved "http://npm.t.pt.miui.com/follow-redirects/-/follow-redirects-1.15.9.tgz#a604fa10e443bf98ca94228d9eebcc2e8a2c8ee1"
+  resolved "http://npm.t.pt.miui.com/follow-redirects/-/follow-redirects-1.15.9.tgz"
   integrity sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==
 
 form-data@^4.0.0:
@@ -2053,7 +2058,7 @@ iconv-lite@0.6.3, iconv-lite@^0.6.3:
 
 immer@^10.1.1:
   version "10.1.1"
-  resolved "http://npm.t.pt.miui.com/immer/-/immer-10.1.1.tgz#206f344ea372d8ea176891545ee53ccc062db7bc"
+  resolved "http://npm.t.pt.miui.com/immer/-/immer-10.1.1.tgz"
   integrity sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==
 
 inflight@^1.0.4:
@@ -2265,7 +2270,7 @@ linkify-it@^4.0.1:
 
 linkify-it@^5.0.0:
   version "5.0.0"
-  resolved "http://npm.t.pt.miui.com/linkify-it/-/linkify-it-5.0.0.tgz#9ef238bfa6dc70bd8e7f9572b52d369af569b421"
+  resolved "http://npm.t.pt.miui.com/linkify-it/-/linkify-it-5.0.0.tgz"
   integrity sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==
   dependencies:
     uc.micro "^2.0.0"
@@ -2334,7 +2339,7 @@ markdown-it@^13.0.1:
 
 markdown-it@^14.1.0:
   version "14.1.0"
-  resolved "http://npm.t.pt.miui.com/markdown-it/-/markdown-it-14.1.0.tgz#3c3c5992883c633db4714ccb4d7b5935d98b7d45"
+  resolved "http://npm.t.pt.miui.com/markdown-it/-/markdown-it-14.1.0.tgz"
   integrity sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==
   dependencies:
     argparse "^2.0.1"
@@ -2466,7 +2471,7 @@ mdurl@^1.0.1:
 
 mdurl@^2.0.0:
   version "2.0.0"
-  resolved "http://npm.t.pt.miui.com/mdurl/-/mdurl-2.0.0.tgz#80676ec0433025dd3e17ee983d0fe8de5a2237e0"
+  resolved "http://npm.t.pt.miui.com/mdurl/-/mdurl-2.0.0.tgz"
   integrity sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==
 
 media-typer@^1.1.0:
@@ -2736,7 +2741,7 @@ mkdirp@^1.0.3:
 
 modern-copy-to-clipboard@^0.1.4:
   version "0.1.4"
-  resolved "http://npm.t.pt.miui.com/modern-copy-to-clipboard/-/modern-copy-to-clipboard-0.1.4.tgz#ea219955b7cf5e336e6651893e0e4bf34dcf561c"
+  resolved "http://npm.t.pt.miui.com/modern-copy-to-clipboard/-/modern-copy-to-clipboard-0.1.4.tgz"
   integrity sha512-c/dsSZF18HJW9zn50ZEmkzW0UVzMM7RH97opHFAXi3Spm8InvfuEYmZ9n5mUbAsHYYBRNuTRgICfx8GiuJAPcQ==
 
 ms@^2.1.1, ms@^2.1.3:
@@ -2959,7 +2964,7 @@ proxy-addr@^2.0.7:
 
 proxy-from-env@^1.1.0:
   version "1.1.0"
-  resolved "http://npm.t.pt.miui.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  resolved "http://npm.t.pt.miui.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
 psl@^1.1.33:
@@ -2971,7 +2976,7 @@ psl@^1.1.33:
 
 punycode.js@^2.3.1:
   version "2.3.1"
-  resolved "http://npm.t.pt.miui.com/punycode.js/-/punycode.js-2.3.1.tgz#6b53e56ad75588234e79f4affa90972c7dd8cdb7"
+  resolved "http://npm.t.pt.miui.com/punycode.js/-/punycode.js-2.3.1.tgz"
   integrity sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==
 
 punycode@^2.1.1, punycode@^2.3.1:
@@ -3461,25 +3466,24 @@ react-refresh@^0.17.0:
   resolved "http://npm.t.pt.miui.com/react-refresh/-/react-refresh-0.17.0.tgz"
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
 
-react-router-dom@^7.5.3:
-  version "7.5.3"
-  resolved "http://npm.t.pt.miui.com/react-router-dom/-/react-router-dom-7.5.3.tgz#496e9f6d90f731703c7772668b41747028e0a2d5"
-  integrity sha512-cK0jSaTyW4jV9SRKAItMIQfWZ/D6WEZafgHuuCb9g+SjhLolY78qc+De4w/Cz9ybjvLzShAmaIMEXt8iF1Cm+A==
+react-router-dom@^7.6.3:
+  version "7.6.3"
+  resolved "http://npm.t.pt.miui.com/react-router-dom/-/react-router-dom-7.6.3.tgz#45686e71bb958cf80dd93ca3abf4111feb4edd35"
+  integrity sha512-DiWJm9qdUAmiJrVWaeJdu4TKu13+iB/8IEi0EW/XgaHCjW/vWGrwzup0GVvaMteuZjKnh5bEvJP/K0MDnzawHw==
   dependencies:
-    react-router "7.5.3"
+    react-router "7.6.3"
 
-react-router@7.5.3:
-  version "7.5.3"
-  resolved "http://npm.t.pt.miui.com/react-router/-/react-router-7.5.3.tgz#9e5420832af8c3690740c1797d4fa54613fea06d"
-  integrity sha512-3iUDM4/fZCQ89SXlDa+Ph3MevBrozBAI655OAfWQlTm9nBR0IKlrmNwFow5lPHttbwvITZfkeeeZFP6zt3F7pw==
+react-router@7.6.3:
+  version "7.6.3"
+  resolved "http://npm.t.pt.miui.com/react-router/-/react-router-7.6.3.tgz#7a4ea5b479b66d2c49a8f000812b2319b4d0a6da"
+  integrity sha512-zf45LZp5skDC6I3jDLXQUu0u26jtuP4lEGbc7BbdyxenBN1vJSTA18czM2D+h5qyMBuMrD+9uB+mU37HIoKGRA==
   dependencies:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
-    turbo-stream "2.4.0"
 
 react-transition-group@^4.4.5:
   version "4.4.5"
-  resolved "http://npm.t.pt.miui.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
+  resolved "http://npm.t.pt.miui.com/react-transition-group/-/react-transition-group-4.4.5.tgz"
   integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==
   dependencies:
     "@babel/runtime" "^7.5.5"
@@ -4063,11 +4067,6 @@ tslib@^2.1.0, tslib@^2.4.1:
   resolved "http://npm.t.pt.miui.com/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
-turbo-stream@2.4.0:
-  version "2.4.0"
-  resolved "http://npm.t.pt.miui.com/turbo-stream/-/turbo-stream-2.4.0.tgz#1e4fca6725e90fa14ac4adb782f2d3759a5695f0"
-  integrity sha512-FHncC10WpBd2eOmGwpmQsWLDoK4cqsA/UT/GqNoaKOQnT8uzhtCbg3EoUDMvqpOSAI0S26mr0rkjzbOO6S3v1g==
-
 turndown@^7.1.1:
   version "7.2.0"
   resolved "http://npm.t.pt.miui.com/turndown/-/turndown-7.2.0.tgz"
@@ -4096,7 +4095,7 @@ uc.micro@^1.0.1, uc.micro@^1.0.5:
 
 uc.micro@^2.0.0, uc.micro@^2.1.0:
   version "2.1.0"
-  resolved "http://npm.t.pt.miui.com/uc.micro/-/uc.micro-2.1.0.tgz#f8d3f7d0ec4c3dea35a7e3c8efa4cb8b45c9e7ee"
+  resolved "http://npm.t.pt.miui.com/uc.micro/-/uc.micro-2.1.0.tgz"
   integrity sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==
 
 undici-types@~6.21.0:
@@ -4183,7 +4182,7 @@ url-parse@^1.5.10, url-parse@^1.5.3:
 
 use-immer@^0.11.0:
   version "0.11.0"
-  resolved "http://npm.t.pt.miui.com/use-immer/-/use-immer-0.11.0.tgz#8dd46cbc913cbc3298e60b8f2d9f58d82fc22e08"
+  resolved "http://npm.t.pt.miui.com/use-immer/-/use-immer-0.11.0.tgz"
   integrity sha512-RNAqi3GqsWJ4bcCd4LMBgdzvPmTABam24DUaFiKfX9s3MSorNRz9RDZYJkllJoMHUxVLMDetwAuCDeyWNrp1yA==
 
 util-deprecate@^1.0.1:
@@ -4229,7 +4228,7 @@ vfile@^6.0.0:
 
 vite-plugin-mkcert@^1.17.8:
   version "1.17.8"
-  resolved "http://npm.t.pt.miui.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.8.tgz#7ddbd62a7b7941a57dfdf73cb19d6c39c3967e96"
+  resolved "http://npm.t.pt.miui.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.8.tgz"
   integrity sha512-S+4tNEyGqdZQ3RLAG54ETeO2qyURHWrVjUWKYikLAbmhh/iJ+36gDEja4OWwFyXNuvyXcZwNt5TZZR9itPeG5Q==
   dependencies:
     axios "^1.8.3"
