@@ -1,4 +1,5 @@
 import html2canvas from 'html2canvas'
+import { snapdom } from '@zumer/snapdom'
 import Konva from 'konva'
 import ToolManager, { EditorCallback } from './tool/ToolManager'
 import { canSelect } from './tool/SelectionDetect'
@@ -6,7 +7,8 @@ import { canSelect } from './tool/SelectionDetect'
 const getScale = (w1: number, h1: number, w2: number, h2: number) => Math.min(w2 / w1, h2 / h1)
 
 const createScreenshotKonva = async (container: HTMLDivElement | string) => {
-  const canvas = await html2canvas(document.body, { useCORS: true })
+  // const canvas = await html2canvas(document.body, { useCORS: true })
+  const canvas = await snapdom.toCanvas(document.body)
   console.log(canvas)
   const imageUrl = canvas.toDataURL()
   const image = new Image()
