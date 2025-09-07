@@ -27,13 +27,14 @@ import PageLeave from './demos/PageLeave'
 import DocumentVisibility from './demos/DocumentVisibility'
 import LocalStorage from './demos/LocalStorage2'
 import ImageEditor from './demos/image-editor'
-import RouterApp from './demos/router/App3' 
+import RouterApp from './demos/router/App3'
 
 import QueryDemo from './demos/query/todo'
 import UploadDemo from './demos/antd/UploadDemo'
 import TooltipDemo from './demos/antd/TooltipDemo'
+import TransferDemo from './demos/antd/TransferDemo'
 import CopyToClipboard from './demos/tools/CopyToClipboard'
 import ScreenshotImage from './demos/tools/ScreenshotImage'
 import MarkdownImage from './demos/markdown/Image'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<ImageEditor />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<TransferDemo />)
