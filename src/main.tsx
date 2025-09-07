@@ -36,5 +36,8 @@ import TransferDemo from './demos/antd/TransferDemo'
 import CopyToClipboard from './demos/tools/CopyToClipboard'
 import ScreenshotImage from './demos/tools/ScreenshotImage'
 import MarkdownImage from './demos/markdown/Image'
+import SingleInputTimePicker from './demos/antd/SingleInputTimePicker'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<TransferDemo />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <SingleInputTimePicker />
+)
