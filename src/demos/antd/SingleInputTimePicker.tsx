@@ -25,6 +25,7 @@ const SingleInputTimePicker = () => {
   ])
   const [inputValue, setInputValue] = useState(formatTimeParts(timeParts))
   const [activePartIndex, setActivePartIndex] = useState(0)
+  const [shouldMaintainSelection, setShouldMaintainSelection] = useState(false)
   const inputRef = useRef(null)
 
   // 根据月份更新最大天数
@@ -51,6 +52,15 @@ const SingleInputTimePicker = () => {
   useEffect(() => {
     setInputValue(formatTimeParts(timeParts))
   }, [timeParts])
+
+  // 当输入值更新且需要保持选中状态时重新设置选中范围
+  useEffect(() => {
+    if (shouldMaintainSelection && inputRef.current) {
+      setCursorToPart(activePartIndex)
+      // 重置标志，避免不必要的重绘
+      setShouldMaintainSelection(false)
+    }
+  }, [inputValue, shouldMaintainSelection])
 
   // 格式化时间部分为字符串
   function formatTimeParts(parts) {
@@ -106,15 +116,16 @@ const SingleInputTimePicker = () => {
     return activePartIndex // 默认返回当前激活的部分
   }
 
-  // 设置光标位置到指定部分
+  // 设置光标位置到指定部分并选中
   function setCursorToPart(partIndex) {
     if (!inputRef.current) return
 
     const part = PART_DEFINITIONS[partIndex]
     const input = inputRef.current
 
-    // 设置光标位置到该部分的起始位置
+    // 使用setTimeout确保在DOM更新后执行
     setTimeout(() => {
+      input.focus()
       input.setSelectionRange(part.start, part.end)
     }, 0)
   }
@@ -185,8 +196,8 @@ const SingleInputTimePicker = () => {
       })
     )
 
-    // 保持光标位置
-    setCursorToPart(activePartIndex)
+    // 标记需要保持选中状态
+    setShouldMaintainSelection(true)
   }
 
   // 减少当前部分的值
@@ -207,8 +218,8 @@ const SingleInputTimePicker = () => {
       })
     )
 
-    // 保持光标位置
-    setCursorToPart(activePartIndex)
+    // 标记需要保持选中状态
+    setShouldMaintainSelection(true)
   }
 
   // 重置为当前时间
