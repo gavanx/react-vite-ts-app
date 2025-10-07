@@ -307,6 +307,65 @@
   resolved "http://npm.t.pt.miui.com/@csstools/css-tokenizer/-/css-tokenizer-3.0.3.tgz"
   integrity sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==
 
+"@datastructures-js/binary-search-tree@^5.3.1":
+  version "5.3.3"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/binary-search-tree/-/binary-search-tree-5.3.3.tgz#6262a7e6393b87ede5aa9099f44d116bf607d816"
+  integrity sha512-khHe29zQDe+CVFJy5u3h0J2xnlLtZAuXbBVqUormwD75CQKQdGbuXKJk+sTWrfaVgQRcwn0ahMzKwOgQ1pYAeg==
+
+"@datastructures-js/deque@^1.0.4":
+  version "1.0.8"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/deque/-/deque-1.0.8.tgz#7ef2b655821ea24b1677ff01895a8fdb8a26d3c7"
+  integrity sha512-PSBhJ2/SmeRPRHuBv7i/fHWIdSC3JTyq56qb+Rq0wjOagi0/fdV5/B/3Md5zFZus/W6OkSPMaxMKKMNMrSmubg==
+
+"@datastructures-js/graph@^5.3.0":
+  version "5.3.1"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/graph/-/graph-5.3.1.tgz#275f39ac7a00a6c15071de155e56c9d464821aea"
+  integrity sha512-tFuysPL+PKxaLitXcHeWZOwOwmSIaa5OzBh4CNSwYYnAVZRxItl50LiX432+AMo+WZLYpDEhTyXtLVlt3qtc9w==
+  dependencies:
+    "@datastructures-js/queue" "^3.1.3"
+
+"@datastructures-js/heap@^4.3.2", "@datastructures-js/heap@^4.3.3":
+  version "4.3.5"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/heap/-/heap-4.3.5.tgz#81aa3087f91a2e593283fbe30f07940ac268fcaf"
+  integrity sha512-zgO8KO26WnZdCxe72Ck+55mhUYmw/1CL/TueKSIIU6aqoOcXAqeaL2kRldJcXtCdJ43rqgIKYdEkiL07sQ+2VQ==
+
+"@datastructures-js/linked-list@^6.1.0":
+  version "6.1.4"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/linked-list/-/linked-list-6.1.4.tgz#114c3cf3d95894e5a02e01923548d833c8567794"
+  integrity sha512-lwM6KDBPgV9xxJMzozCqZzdofzc0fx8FPjNfrWDf8+u8Fm7zcjksvXrv6Z9dA2Kg40HZIUKqLPaQriqLhhAisg==
+
+"@datastructures-js/priority-queue@^6.3.0":
+  version "6.3.4"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/priority-queue/-/priority-queue-6.3.4.tgz#8d904a84f674fba8d23cd932ef1d53c5b71498ab"
+  integrity sha512-m8Jt1OkwyHsKRz6L1FWerz3Hw8iU5vqCdBI6khC8YNssF1kXKX6cs8Xc9Zt9ocPCxO/vZhAu/KnQ+uQ4Btw6AA==
+  dependencies:
+    "@datastructures-js/heap" "^4.3.3"
+
+"@datastructures-js/queue@^3.1.3":
+  version "3.1.4"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/queue/-/queue-3.1.4.tgz#785bcbe29af6003934fd0e7849295d62543dba5d"
+  integrity sha512-8QqkdAJQDDd25OBX28lKj7HXD+Cxs6Ee0ogJkZUjD5R1fAvRAWsrCeKop0szqANYjMwdQQd75vyc3Cm8qNJH+Q==
+
+"@datastructures-js/queue@^4.2.3":
+  version "4.3.0"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/queue/-/queue-4.3.0.tgz#3aca391aa7d8d3c81edc0fe333c608748f77b0aa"
+  integrity sha512-2RYt1+N4dtdcilwmB+A6j9HT/5MImHSK2UUjBA8WQAHoA2AEJC4YxJSSGhGTOBMyLMKpMiowwTrnB315YgtTrA==
+
+"@datastructures-js/set@^4.2.1":
+  version "4.2.2"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/set/-/set-4.2.2.tgz#3313548cccfd39fac6c861307820a743c11ade43"
+  integrity sha512-6TilB1kZV3elcT3PiXnzBzjgf+HqcfcbyPjL3q7fubIpaKwFF1qSjJjzXdE7s8utA6ptyQrhQiU6knhVPcDZMA==
+
+"@datastructures-js/stack@^3.1.4":
+  version "3.1.6"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/stack/-/stack-3.1.6.tgz#e32f99152a16d79ac939cab47927ffc5c7736868"
+  integrity sha512-HtArTBadxEK8j/whIuXanzoCj9VPz7BXJOn5n4ktr7K+DtGryrCLERZczbN35WujqEwIjIdVTTbxGoma1qGDuQ==
+
+"@datastructures-js/trie@^4.2.2":
+  version "4.2.3"
+  resolved "http://npm.t.pt.miui.com/@datastructures-js/trie/-/trie-4.2.3.tgz#7af5d6ddb8d7533c56e9df0cd85bfea72d411cf4"
+  integrity sha512-4Iu2okR18BE3d/KQBKnpGZ+98cv/EwYl7wSwOU4yICxjSJfjUJixugBjh3kPhHe9Qf652qVDN/Ugp2dj4ak68w==
+
 "@emotion/hash@^0.8.0":
   version "0.8.0"
   resolved "http://npm.t.pt.miui.com/@emotion/hash/-/hash-0.8.0.tgz"
@@ -1371,6 +1430,22 @@ data-urls@^5.0.0:
   dependencies:
     whatwg-mimetype "^4.0.0"
     whatwg-url "^14.0.0"
+
+datastructures-js@^13.0.0:
+  version "13.0.0"
+  resolved "http://npm.t.pt.miui.com/datastructures-js/-/datastructures-js-13.0.0.tgz#9feb1a35e34b9a9e190c501d839e2513fbc0efdc"
+  integrity sha512-3KLehk8sGWS2IuncLv0/Wxl1a1VtvQagLDtGNBw3SNbi7893PPxWT8dac+cuHA/N4V25BQL6pHF7IVjdaZFB3Q==
+  dependencies:
+    "@datastructures-js/binary-search-tree" "^5.3.1"
+    "@datastructures-js/deque" "^1.0.4"
+    "@datastructures-js/graph" "^5.3.0"
+    "@datastructures-js/heap" "^4.3.2"
+    "@datastructures-js/linked-list" "^6.1.0"
+    "@datastructures-js/priority-queue" "^6.3.0"
+    "@datastructures-js/queue" "^4.2.3"
+    "@datastructures-js/set" "^4.2.1"
+    "@datastructures-js/stack" "^3.1.4"
+    "@datastructures-js/trie" "^4.2.2"
 
 dayjs@^1.11.11, dayjs@^1.9.1:
   version "1.11.13"

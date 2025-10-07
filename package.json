@@ -1,7 +1,6 @@
 {
   "name": "react-vite-ts-app",
   "version": "0.0.1",
-  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -18,6 +17,7 @@
     "ahooks": "^3.8.4",
     "antd": "^5.24.9",
     "cors": "^2.8.5",
+    "datastructures-js": "^13.0.0",
     "express": "^5.1.0",
     "fabric": "^6.6.4",
     "html2canvas": "^1.4.1",
