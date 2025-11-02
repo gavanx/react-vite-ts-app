@@ -1,8 +1,9 @@
 var smallestNumber = function (n) {
-  const a = n.toString(2).length;
-  return 2 ** a - 1;
-};
+  const res = n.toString(2).replace(/0/g, '1')
+  return parseInt(res, 2)
+}
 
-console.log(smallestNumber(3))
 console.log(smallestNumber(5))
 console.log(smallestNumber(10))
+
+console.log(smallestNumber(3))
