@@ -1,13 +1,19 @@
 var coinChange = function (coins, amount) {
   const n = coins.length
-  const dp = new Array(amount + 1).fill(Infinity)
-  dp[0] = 0
-  for (let i = 1; i <= amount; i++) {
-    for (let j = 0; j < n; j++) {
-      if (coins[j] <= i && dp[i - coins[j]] !== Infinity) {
-        dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1)
-      }
+  let ans = Infinity
+  const dfs = (i, c, a) => {
+    if (a === 0) {
+      ans = Math.min(ans, c)
     }
+    if (i >= n || a < 0 || c >= ans) return
+
+    dfs(i, c + 1, a - coins[i])
+    dfs(i + 1, c, a)
   }
-  return dp[amount] === Infinity ? -1 : dp[amount]
+  dfs(0, 0, amount)
+  return ans === Infinity ? -1 : ans
 }
+
+console.log(coinChange([1, 2, 5], 11) === 3)
+console.log(coinChange([2], 3) === -1)
+console.log(coinChange([1], 0) === 0)

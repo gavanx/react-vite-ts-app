@@ -37,7 +37,7 @@ import CopyToClipboard from './demos/tools/CopyToClipboard'
 import ScreenshotImage from './demos/tools/ScreenshotImage'
 import MarkdownImage from './demos/markdown/Image'
 import SingleInputTimePicker from './demos/antd/SingleInputTimePicker'
+import TableEditDemo from './demos/antd/TableEditDemo'
+import BlockDemo from './demos/router/App'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <SingleInputTimePicker />
-)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<TableEditDemo />)
