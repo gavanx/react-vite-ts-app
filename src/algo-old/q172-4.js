@@ -1,0 +1,3 @@
+var lastInteger = function (n) { 
+  
+}

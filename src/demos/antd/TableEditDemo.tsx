@@ -49,6 +49,8 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   const inputRef = useRef<InputRef>(null)
   const form = useContext(EditableContext)!
 
+  console.log('xxxxxxxxxx EditableCell render', editable)
+
   useEffect(() => {
     if (editing) {
       inputRef.current?.focus()
@@ -112,21 +114,16 @@ interface DataType {
 
 type ColumnTypes = Exclude<TableProps<DataType>['columns'], undefined>
 
+const mockData = Array.from({ length: 120 }).map((v, i) => ({
+  key: 'x' + i,
+  name: `Edward King ${i}`,
+  age: '32',
+  address: `London, Park Lane no. ${i}`,
+}))
+console.log('xxxxxx', mockData)
+
 const App: React.FC = () => {
-  const [dataSource, setDataSource] = useState<DataType[]>([
-    {
-      key: '0',
-      name: 'Edward King 0',
-      age: '32',
-      address: 'London, Park Lane no. 0',
-    },
-    {
-      key: '1',
-      name: 'Edward King 1',
-      age: '32',
-      address: 'London, Park Lane no. 1',
-    },
-  ])
+  const [dataSource, setDataSource] = useState<DataType[]>(mockData)
 
   const [count, setCount] = useState(2)
 
@@ -210,6 +207,8 @@ const App: React.FC = () => {
     }
   })
 
+  console.log('xxxxxxx render')
+
   return (
     <div>
       <Button onClick={handleAdd} type='primary' style={{ marginBottom: 16 }}>
@@ -221,6 +220,7 @@ const App: React.FC = () => {
         bordered
         dataSource={dataSource}
         columns={columns as ColumnTypes}
+        // virtual
       />
     </div>
   )

@@ -1,21 +1,44 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
 var countPartitions = function (nums, k) {
-  const f = new Array(nums.length + 1).fill(0)
+  const MOD = 1_000_000_007
+  const n = nums.length
+  const minQueue = []
+  const maxQueue = []
+  const f = new Array(n + 1).fill(0)
   f[0] = 1
-  f[1] = 1
-  let max, min
-  for (let i = 2; i <= nums.length; i++) {
-    max = min = nums[i - 1]
-    f[i] += f[i - 1]
-    for (let j = i - 1; j >= 1; j--) {
-      max = Math.max(max, nums[j - 1])
-      min = Math.min(min, nums[j - 1])
-      if (max - min > k) {
-        break
-      }
-      f[i] += f[j]
+
+  let sumF = 0
+  let left = 0
+  for (let i = 0; i < n; i++) {
+    const x = nums[i]
+    sumF = (sumF + f[i]) % MOD
+    while (minQueue.length > 0 && x <= nums[minQueue[minQueue.length - 1]]) {
+      minQueue.pop()
     }
+    minQueue.push(i)
+    while (maxQueue.length > 0 && x >= nums[maxQueue[maxQueue.length - 1]]) {
+      maxQueue.pop()
+    }
+    maxQueue.push(i)
+    while (nums[maxQueue[0]] - nums[minQueue[0]] > k) {
+      sumF = (sumF - f[left] + MOD) % MOD
+      left++
+      if (minQueue[0] < left) {
+        minQueue.shift()
+      }
+      if (maxQueue[0] < left) {
+        maxQueue.shift()
+      }
+    }
+    f[i + 1] = sumF
   }
-  return f[nums.length]
+
+  return f[n]
 }
 
 console.log(countPartitions([9, 4, 1, 3, 7], 4))
+console.log(countPartitions([3, 3, 4], 0))

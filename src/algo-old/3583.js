@@ -1,22 +1,18 @@
 var specialTriplets = function (nums) {
-  let left = []
-  let right = []
-  let max = 0
-  for (const n of nums) {
-    right[n] = right[n] > 0 ? right[n] + 1 : 1
-    max = Math.max(max, n)
+  const suf = new Map()
+  const pre = new Map()
+  for (const x of nums) {
+    suf.set(x, (suf.get(x) || 0) + 1)
   }
-  let ans = 0,
-    t
-  for (const n of nums) {
-    right[n]--
-    t = 2 * n
-    if (t <= max && right[t] && left[t]) {
-      ans += right[t] * left[t]
-    }
-    left[n] = left[n] > 0 ? left[n] + 1 : 1
+  let res = 0
+  let d
+  for (const x of nums) {
+    suf.set(x, suf.get(x) - 1)
+    d = 2 * x
+    res += (pre.get(d) || 0) * (suf.get(d) || 0)
+    pre.set(x, (pre.get(x) || 0) + 1)
   }
-  return ans % (1e9 + 7)
+  return res % (1e9 + 7)
 }
 
 console.log(specialTriplets([6, 3, 6]))
