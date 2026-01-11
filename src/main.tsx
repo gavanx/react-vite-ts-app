@@ -39,5 +39,6 @@ import MarkdownImage from './demos/markdown/Image'
 import SingleInputTimePicker from './demos/antd/SingleInputTimePicker'
 import TableEditDemo from './demos/antd/TableEditDemo'
 import BlockDemo from './demos/router/App'
+import RegionCascaderDemo from './demos/itsm/RegionCascaderDemo'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<TableEditDemo />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<RegionCascaderDemo />)

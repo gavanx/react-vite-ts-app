@@ -1,16 +1,12 @@
 var maxProfit = function (prices) {
   const n = prices.length
   let min = prices[0]
-  let max = 0
+  let ans = 0
   for (let i = 1; i < n; i++) {
-    if (prices[i] < min) {
-      min = prices[i]
-    } else if (prices[i] - min > max) {
-      max = prices[i] - min
-    }
+    ans = Math.max(ans, prices[i] - min)
+    min = Math.min(min, prices[i])
   }
-  return max
+  return ans
 }
-
-console.log(maxProfit([7, 1, 5, 3, 6, 4]) === 5)
-console.log(maxProfit([7, 6, 4, 3, 1]) === 0)
+console.log(maxProfit([7, 1, 5, 3, 6, 4])) // 5
+console.log(maxProfit([7, 6, 4, 3, 1])) // 0

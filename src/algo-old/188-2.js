@@ -1,3 +1,8 @@
+/**
+ * @param {number} k
+ * @param {number[]} prices
+ * @return {number}
+ */
 var maxProfit = function (k, prices) {
   const n = prices.length
   const b = Array.from({ length: n }, () => Array.from({ length: k + 1 }, () => 0))
@@ -5,8 +10,8 @@ var maxProfit = function (k, prices) {
   b[0][0] = -prices[0]
   s[0][0] = 0
   for (let i = 1; i <= k; i++) {
-    b[0][i] = -Number.MAX_SAFE_INTEGER
-    s[0][i] = -Number.MAX_SAFE_INTEGER
+    b[0][i] = -Infinity
+    s[0][i] = -Infinity
   }
   for (let i = 1; i < n; i++) {
     b[i][0] = Math.max(b[i - 1][0], s[i - 1][0] - prices[i])
@@ -18,5 +23,8 @@ var maxProfit = function (k, prices) {
   return Math.max(...s[n - 1])
 }
 
-console.log(maxProfit(2, [2, 4, 1]))
-console.log(maxProfit(2, [3, 2, 6, 5, 0, 3]))
+console.log(maxProfit(2, [3, 2, 6, 5, 0, 3])) // 7
+console.log(maxProfit(2, [2, 4, 1])) // 2
+console.log(maxProfit(2, [3, 3, 5, 0, 0, 3, 1, 4])) // 6
+console.log(maxProfit((k = 0), [1, 2, 3, 4, 5])) // 0
+console.log(maxProfit(100, [7, 6, 4, 3, 1])) // 0
