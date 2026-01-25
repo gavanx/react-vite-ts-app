@@ -1,10 +1,10 @@
 var findDuplicate = function (nums) {
-  let res = 0
+  let ans = 1
   for (const x of nums) {
-    res = res ^ x
+    ans &= x
   }
-  return res
+  return ans
 }
 
-console.log(2 ^ 1 ^ 3)
-console.log(findDuplicate([1, 3, 4, 2, 2]))
+console.log(findDuplicate([1, 3, 4, 2, 2])) // 2
+console.log(findDuplicate([3, 1, 3, 4, 2])) // 3
