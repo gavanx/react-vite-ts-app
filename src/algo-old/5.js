@@ -1,48 +1,40 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
 var longestPalindrome = function (s) {
-  const n = s.length;
+  const n = s.length
   if (n === 1) {
-    return s;
-  } else if (n === 2) {
-    if (s[0] === s[1]) {
-      return s;
-    } else {
-      return s[0];
+    return s
+  }
+  let c,
+    max = 0,
+    left,
+    right,
+    start,
+    end
+  const expand = (i) => {
+    c = s[i]
+    left = i - 1
+    right = i + 1
+    while (c === s[left]) {
+      left--
+    }
+    while (c === s[right]) {
+      right++
+    }
+    while (s[left] === s[right] && left >= 0 && right < n) {
+      left--
+      right++
+    }
+    if (max < right - left - 1) {
+      max = right - left - 1
+      start = left + 1
+      end = right - 1
     }
   }
-  let start, end;
-  let max = 0;
-  const dfs = (i, j) => {
-    if (i === j) {
-      if (max < 1) {
-        start = end = i;
-        max = 1;
-      }
-      return true;
-    } else if (i + 1 === j) {
-      if (s[i] === s[j]) {
-        if (max < 2) {
-          start = i;
-          end = j;
-          max = 2;
-        }
-        return true;
-      }
-      return false;
-    }
-    if (s[i] === s[j]) {
-      if (dfs(i + 1, j - 1)) {
-        start = i;
-        end = j;
-        return true;
-      }
-    }
-    return false;
-  };
-  dfs(0, s.length - 1);
-  return s.substring(start, end + 1);
-};
-
-console.log(longestPalindrome("babad") === "aba");
-console.log(longestPalindrome("cbbd") === "bb");
-console.log(longestPalindrome("ac") === "a");
-console.log(longestPalindrome("abb") === "bb");
+  for (let i = 0; i < n; i++) {
+    expand(i)
+  }
+  return s.substring(start, end + 1)
+}

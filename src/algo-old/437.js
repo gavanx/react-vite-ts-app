@@ -1,16 +1,16 @@
 var pathSum = function (root, targetSum) {
-  const dfs = (node, target) => {
-    if (!node || target < 0) {
-      return 0
+  let ans = 0
+  function dfs(node, currSum) {
+    if (!node) return
+    if (currSum === targetSum) {
+      ans++
     }
-    const plus = node.val === target ? 1 : 0
-    return (
-      plus +
-      dfs(node.left, target - node.val) +
-      dfs(node.right, target - node.val) +
-      dfs(node.left, target) +
-      dfs(node.right, target)
-    )
+    const s = [...new Set([0, node.val, node.val + currSum])]
+    for (const sum of s) {
+      dfs(node.left, sum)
+      dfs(node.right, sum)
+    }
   }
-  return dfs(root, targetSum)
+  dfs(root, 0)
+  return ans
 }
