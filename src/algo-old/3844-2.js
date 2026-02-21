@@ -3,33 +3,38 @@ var almostPalindromic = function (s) {
     return 2
   }
   let ans = 0
-  for (let i = 1; i < s.length - 1; i++) {
-    let l = i - 1,
-      r = i + 1
-    while (s[i] === s[l]) {
+  const n = s.length
+  const expand = (l, r) => {
+    while (l >= 0 && r < n && s[l] === s[r]) {
       l--
-    }
-    while (s[i] === s[r]) {
       r++
     }
+    ans = Math.max(Math.min(r - l - 1, n), ans)
+  }
+  for (let i = 1; i < 2 * n - 1; i++) {
+    let l = Math.floor(i / 2),
+      r = Math.floor((i + 1) / 2)
     let flag = true
     while (s[l] === s[r] || flag) {
       if (s[l] === s[r]) {
         l--
         r++
+        if (l < 0 || r >= n) {
+          ans = Math.max(Math.min(r - l, n), ans)
+          break
+        }
       } else if (flag) {
         flag = false
-        l--
-      }
-      if (l < 0 || r > s.length) {
+        expand(l - 1, r)
+        expand(l, r + 1)
         break
       }
     }
-    ans = Math.max(Math.min(r - l - 1, s.length), ans)
   }
   return ans
 }
 
+console.log(almostPalindromic('aaab')) //4
 console.log(almostPalindromic('abb')) //3
 console.log(almostPalindromic('abaa')) //4
 console.log(almostPalindromic('aaa')) // 3
