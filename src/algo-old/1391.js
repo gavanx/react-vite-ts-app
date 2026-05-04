@@ -1,23 +1,42 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
+var hasValidPath = function (grid) {
+  const m = grid.length,
+    n = grid[0].length
 
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
-      }
-      ret[i][j] = max - min
+  // [left, right, up, down]
+  const dirs = {
+    1: [1, 1, 0, 0],
+    2: [0, 0, 1, 1],
+    3: [1, 0, 0, 1],
+    4: [0, 1, 0, 1],
+    5: [1, 0, 1, 0],
+    6: [0, 1, 1, 0],
+  }
+  const opposite = [1, 0, 3, 2]
+  const dr = [0, 0, -1, 1]
+  const dc = [-1, 1, 0, 0]
+
+  const visited = Array.from({ length: m }, () => new Uint8Array(n))
+  visited[0][0] = 1
+  const queue = [[0, 0]]
+
+  let head = 0
+  while (head < queue.length) {
+    const [r, c] = queue[head++]
+    if (r === m - 1 && c === n - 1) return true
+
+    const openDirs = dirs[grid[r][c]]
+    for (let d = 0; d < 4; d++) {
+      if (!openDirs[d]) continue
+      const nr = r + dr[d]
+      const nc = c + dc[d]
+      if (nr < 0 || nr >= m || nc < 0 || nc >= n) continue
+      if (visited[nr][nc]) continue
+      if (!dirs[grid[nr][nc]][opposite[d]]) continue
+      visited[nr][nc] = 1
+      queue.push([nr, nc])
     }
   }
-  return ret
+  return false
 }
 
 
@@ -61,9 +80,11 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[[2, 4, 3], [6, 5, 2]]], expected: true, comment: "// 输入：grid = [[2,4,3],[6,5,2]]  输出：true" },
+  { args: [[[1, 2, 1], [1, 2, 1]]], expected: false, comment: "// 输入：grid = [[1,2,1],[1,2,1]]  输出：false" },
+  { args: [[[1, 1, 2]]], expected: false, comment: "// 输入：grid = [[1,1,2]]  输出：false" },
+  { args: [[[1, 1, 1, 1, 1, 1, 3]]], expected: true, comment: "// 输入：grid = [[1,1,1,1,1,1,3]]  输出：true" },
+  { args: [[[2], [2], [2], [2], [2], [2], [6]]], expected: true, comment: "// 输入：grid = [[2],[2],[2],[2],[2],[2],[6]]  输出：true" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(hasValidPath, __lcExamples);

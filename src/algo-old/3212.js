@@ -1,23 +1,19 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
+var numberOfSubmatrices = function (grid) {
   const m = grid.length
   const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
+  const x = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0))
+  const y = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0))
+  let ans = 0
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      x[i + 1][j + 1] = x[i][j + 1] + x[i + 1][j] + (grid[i][j] === 'X' ? 1 : 0) - x[i][j]
+      y[i + 1][j + 1] = y[i][j + 1] + y[i + 1][j] + (grid[i][j] === 'Y' ? 1 : 0) - x[i][j]
+      if (x[i + 1][j + 1] === y[i + 1][j + 1] && x[i + 1][j + 1] > 0) {
+        ans += 1
       }
-      ret[i][j] = max - min
     }
   }
-  return ret
+  return ans
 }
 
 
@@ -61,9 +57,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[["X", "Y", "."], ["Y", ".", "."]]], expected: 3, comment: "// 输入：grid = [[\"X\",\"Y\",\".\"],[\"Y\",\".\",\".\"]]  输出：3" },
+  { args: [[["X", "X"], ["X", "Y"]]], expected: 0, comment: "// 输入：grid = [[\"X\",\"X\"],[\"X\",\"Y\"]]  输出：0" },
+  { args: [[[".", "."], [".", "."]]], expected: 0, comment: "// 输入：grid = [[\".\",\".\"],[\".\",\".\"]]  输出：0" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(numberOfSubmatrices, __lcExamples);

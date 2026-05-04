@@ -1,23 +1,42 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
+var numSpecial = function (mat) {
+  const m = mat.length
+  const n = mat[0].length
+  const q = []
+  const r = new Set()
+  const c = new Set()
+  for (let i = 0; i < m; i++) {
+    let one = 0
+    for (let j = 0; j < n; j++) {
+      if (mat[i][j] === 1) {
+        q.push([i, j])
+        one++
       }
-      ret[i][j] = max - min
+    }
+    if (one === 1) {
+      r.add(i)
     }
   }
-  return ret
+  for (let j = 0; j < n; j++) {
+    let one = 0
+    for (let i = 0; i < m; i++) {
+      if (mat[i][j] === 1) {
+        one++
+        if (one > 1) {
+          break
+        }
+      }
+    }
+    if (one === 1) {
+      c.add(j)
+    }
+  }
+  let ans = 0
+  for (const [i, j] of q) {
+    if (r.has(i) && c.has(j)) {
+      ans++
+    }
+  }
+  return ans
 }
 
 
@@ -61,9 +80,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[[1, 0, 0], [0, 0, 1], [1, 0, 0]]], expected: 1, comment: "// 输入：mat = [[1,0,0],[0,0,1],[1,0,0]]  输出：1" },
+  { args: [[[1, 0, 0], [0, 1, 0], [0, 0, 1]]], expected: 3, comment: "// 输入：mat = [[1,0,0],[0,1,0],[0,0,1]]  输出：3" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(numSpecial, __lcExamples);

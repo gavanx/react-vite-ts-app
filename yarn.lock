@@ -110,6 +110,11 @@
     rc-motion "^2.9.2"
     rc-util "^5.43.0"
 
+"@antfu/ni@^0.23.0":
+  version "0.23.2"
+  resolved "http://npm.t.pt.miui.com/@antfu/ni/-/ni-0.23.2.tgz#3e7eed2f02654e8b2cacf21e32f1033f455d29d2"
+  integrity sha512-FSEVWXvwroExDXUu8qV6Wqp2X3D1nJ0Li4LFymCyvCVrm7I3lNfG0zZWSWvGU1RE7891eTnFTyh31L3igOwNKQ==
+
 "@asamuzakjp/css-color@^3.1.2":
   version "3.1.5"
   resolved "http://npm.t.pt.miui.com/@asamuzakjp/css-color/-/css-color-3.1.5.tgz"
@@ -548,6 +553,11 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
+"@medv/finder@^4.0.2":
+  version "4.0.2"
+  resolved "http://npm.t.pt.miui.com/@medv/finder/-/finder-4.0.2.tgz#670e8a93e48ce847ee877819ee9f90387624a14e"
+  integrity sha512-RraNY9SCcx4KZV0Dh6BEW6XEW2swkqYca74pkFFRw6hHItSHiy+O/xMnpbofjYbzXj0tSpBGthUF1hHTsr3vIQ==
+
 "@mi/iam-web-react@^0.0.17":
   version "0.0.17"
   resolved "https://pkgs.d.xiaomi.net:443/artifactory/api/npm/mi-npm/@mi/iam-web-react/-/@mi/iam-web-react-0.0.17.tgz"
@@ -647,6 +657,20 @@
   dependencies:
     is-mobile "^5.0.0"
     react-is "^18.2.0"
+
+"@react-grab/cli@0.1.29":
+  version "0.1.29"
+  resolved "http://npm.t.pt.miui.com/@react-grab/cli/-/cli-0.1.29.tgz#384263b5225a22c2edbe9c12cc3e2b31405869c1"
+  integrity sha512-idgTec/ganPsag5BvbR3srF42UNNoUwHY+p94YORk5sCBl9ZaGJOXcDO93F8M4wruzTqIZgf1MUeY0+sTo0fVA==
+  dependencies:
+    "@antfu/ni" "^0.23.0"
+    commander "^14.0.0"
+    ignore "^7.0.5"
+    jsonc-parser "^3.3.1"
+    ora "^8.2.0"
+    picocolors "^1.1.1"
+    prompts "^2.4.2"
+    smol-toml "^1.6.0"
 
 "@rollup/rollup-android-arm-eabi@4.40.1":
   version "4.40.1"
@@ -891,6 +915,11 @@
     "@types/react" "*"
     "@types/webpack" "^4"
 
+"@types/react-reconciler@^0.28.9":
+  version "0.28.9"
+  resolved "http://npm.t.pt.miui.com/@types/react-reconciler/-/react-reconciler-0.28.9.tgz#d24b4864c384e770c83275b3fe73fba00269c83b"
+  integrity sha512-HHM3nxyUZ3zAylX8ZEyrDNd2XZOnQ0D5XfunJF5FLQnZbHHYq4UWvW1QfelQNXv1ICNkwYhfxjwfnqivYB6bFg==
+
 "@types/react@*":
   version "19.1.2"
   resolved "http://npm.t.pt.miui.com/@types/react/-/react-19.1.2.tgz"
@@ -1055,6 +1084,11 @@ ansi-regex@^5.0.1:
   resolved "http://npm.t.pt.miui.com/ansi-regex/-/ansi-regex-5.0.1.tgz"
   integrity sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==
 
+ansi-regex@^6.2.2:
+  version "6.2.2"
+  resolved "http://npm.t.pt.miui.com/ansi-regex/-/ansi-regex-6.2.2.tgz#60216eea464d864597ce2832000738a0589650c1"
+  integrity sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==
+
 antd@^5.24.9:
   version "5.24.9"
   resolved "http://npm.t.pt.miui.com/antd/-/antd-5.24.9.tgz"
@@ -1165,6 +1199,13 @@ base64-arraybuffer@^1.0.2:
   resolved "http://npm.t.pt.miui.com/base64-arraybuffer/-/base64-arraybuffer-1.0.2.tgz"
   integrity sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==
 
+bippy@^0.5.32:
+  version "0.5.32"
+  resolved "http://npm.t.pt.miui.com/bippy/-/bippy-0.5.32.tgz#60cbed767572e7cecda2f7b7d860f7f0ae6b0874"
+  integrity sha512-yt1mC8eReTxjfg41YBZdN4PvsDwHFWxltoiQX0Q+Htlbf41aSniopb7ECZits01HwNAvXEh69RGk/ImlswDTEw==
+  dependencies:
+    "@types/react-reconciler" "^0.28.9"
+
 body-parser@^2.2.0:
   version "2.2.0"
   resolved "http://npm.t.pt.miui.com/body-parser/-/body-parser-2.2.0.tgz"
@@ -1248,6 +1289,11 @@ ccount@^2.0.0:
   resolved "http://npm.t.pt.miui.com/ccount/-/ccount-2.0.1.tgz"
   integrity sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==
 
+chalk@^5.3.0:
+  version "5.6.2"
+  resolved "http://npm.t.pt.miui.com/chalk/-/chalk-5.6.2.tgz#b1238b6e23ea337af71c7f8a295db5af0c158aea"
+  integrity sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==
+
 character-entities-html4@^2.0.0:
   version "2.1.0"
   resolved "http://npm.t.pt.miui.com/character-entities-html4/-/character-entities-html4-2.1.0.tgz"
@@ -1278,6 +1324,18 @@ classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classna
   resolved "http://npm.t.pt.miui.com/classnames/-/classnames-2.5.1.tgz"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
+cli-cursor@^5.0.0:
+  version "5.0.0"
+  resolved "http://npm.t.pt.miui.com/cli-cursor/-/cli-cursor-5.0.0.tgz#24a4831ecf5a6b01ddeb32fb71a4b2088b0dce38"
+  integrity sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==
+  dependencies:
+    restore-cursor "^5.0.0"
+
+cli-spinners@^2.9.2:
+  version "2.9.2"
+  resolved "http://npm.t.pt.miui.com/cli-spinners/-/cli-spinners-2.9.2.tgz#1773a8f4b9c4d6ac31563df53b3fc1d79462fe41"
+  integrity sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==
+
 clone@^2.1.1:
   version "2.1.2"
   resolved "http://npm.t.pt.miui.com/clone/-/clone-2.1.2.tgz"
@@ -1299,6 +1357,11 @@ comma-separated-tokens@^2.0.0:
   version "2.0.3"
   resolved "http://npm.t.pt.miui.com/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz"
   integrity sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==
+
+commander@^14.0.0:
+  version "14.0.3"
+  resolved "http://npm.t.pt.miui.com/commander/-/commander-14.0.3.tgz#425d79b48f9af82fcd9e4fc1ea8af6c5ec07bbc2"
+  integrity sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==
 
 compute-scroll-into-view@^3.0.2:
   version "3.1.1"
@@ -1413,6 +1476,11 @@ csstype@^3.0.2, csstype@^3.1.2, csstype@^3.1.3:
   version "3.1.3"
   resolved "http://npm.t.pt.miui.com/csstype/-/csstype-3.1.3.tgz"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
+
+csstype@^3.1.0:
+  version "3.2.3"
+  resolved "http://npm.t.pt.miui.com/csstype/-/csstype-3.2.3.tgz#ec48c0f3e993e50648c86da559e2610995cf989a"
+  integrity sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==
 
 data-urls@^3.0.2:
   version "3.0.2"
@@ -1580,6 +1648,18 @@ electron-to-chromium@^1.5.73:
   version "1.5.148"
   resolved "http://npm.t.pt.miui.com/electron-to-chromium/-/electron-to-chromium-1.5.148.tgz"
   integrity sha512-8uc1QXwwqayD4mblcsQYZqoi+cOc97A2XmKSBOIRbEAvbp6vrqmSYs4dHD2qVygUgn7Mi0qdKgPaJ9WC8cv63A==
+
+element-source@^0.0.3:
+  version "0.0.3"
+  resolved "http://npm.t.pt.miui.com/element-source/-/element-source-0.0.3.tgz#66189b82125f628490d4e5a37ce5d14ba50be5f8"
+  integrity sha512-o3VMv2BIfY/axhIBKlE9HrR5rNqnhjHN2PEAKxG65O0VCSfONoMi9QMQjY12XVVvMuTzr1cAg/4xLMkvh+/Wlg==
+  dependencies:
+    bippy "^0.5.32"
+
+emoji-regex@^10.3.0:
+  version "10.6.0"
+  resolved "http://npm.t.pt.miui.com/emoji-regex/-/emoji-regex-10.6.0.tgz#bf3d6e8f7f8fd22a65d9703475bc0147357a6b0d"
+  integrity sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -1900,6 +1980,11 @@ gensync@^1.0.0-beta.2:
   resolved "http://npm.t.pt.miui.com/gensync/-/gensync-1.0.0-beta.2.tgz"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+get-east-asian-width@^1.0.0:
+  version "1.5.0"
+  resolved "http://npm.t.pt.miui.com/get-east-asian-width/-/get-east-asian-width-1.5.0.tgz#ce7008fe345edcf5497a6f557cfa54bc318a9ce7"
+  integrity sha512-CQ+bEO+Tva/qlmw24dCejulK5pMzVnUOFOijVogd3KQs07HnRIgp8TGipvCCRT06xeYEbpbgwaCxglFyiuIcmA==
+
 get-intrinsic@^1.2.4, get-intrinsic@^1.2.5, get-intrinsic@^1.2.6, get-intrinsic@^1.3.0:
   version "1.3.0"
   resolved "http://npm.t.pt.miui.com/get-intrinsic/-/get-intrinsic-1.3.0.tgz"
@@ -2162,6 +2247,11 @@ iconv-lite@0.6.3, iconv-lite@^0.6.3:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
+ignore@^7.0.5:
+  version "7.0.5"
+  resolved "http://npm.t.pt.miui.com/ignore/-/ignore-7.0.5.tgz#4cb5f6cd7d4c7ab0365738c7aea888baa6d7efd9"
+  integrity sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==
+
 immer@^10.1.1:
   version "10.1.1"
   resolved "http://npm.t.pt.miui.com/immer/-/immer-10.1.1.tgz"
@@ -2246,6 +2336,11 @@ is-hexadecimal@^2.0.0:
   resolved "http://npm.t.pt.miui.com/is-hexadecimal/-/is-hexadecimal-2.0.1.tgz"
   integrity sha512-DgZQp241c8oO6cA1SbTEWiXeoxV42vlcJxgH+B3hi1AiqqKruZR3ZGF8In3fj4+/y/7rHvlOZLZtgJ/4ttYGZg==
 
+is-interactive@^2.0.0:
+  version "2.0.0"
+  resolved "http://npm.t.pt.miui.com/is-interactive/-/is-interactive-2.0.0.tgz#40c57614593826da1100ade6059778d597f16e90"
+  integrity sha512-qP1vozQRI+BMOPcjFzrjXuQvdak2pHNUMZoeG2eRbiSqyvbEf/wQtEOTOX1guk6E3t36RkaqiSt8A/6YElNxLQ==
+
 is-mobile@^5.0.0:
   version "5.0.0"
   resolved "http://npm.t.pt.miui.com/is-mobile/-/is-mobile-5.0.0.tgz"
@@ -2275,6 +2370,16 @@ is-regex@^1.1.4:
     gopd "^1.2.0"
     has-tostringtag "^1.0.2"
     hasown "^2.0.2"
+
+is-unicode-supported@^1.3.0:
+  version "1.3.0"
+  resolved "http://npm.t.pt.miui.com/is-unicode-supported/-/is-unicode-supported-1.3.0.tgz#d824984b616c292a2e198207d4a609983842f714"
+  integrity sha512-43r2mRvz+8JRIKnWJ+3j8JtjRKZ6GmjzfaE/qiBJnikNnYv/6bagRJ1kUhNk8R5EX/GkobD+r+sfxCPJsiKBLQ==
+
+is-unicode-supported@^2.0.0:
+  version "2.1.0"
+  resolved "http://npm.t.pt.miui.com/is-unicode-supported/-/is-unicode-supported-2.1.0.tgz#09f0ab0de6d3744d48d265ebb98f65d11f2a9b3a"
+  integrity sha512-mE00Gnza5EEB3Ds0HfMyllZzbBrmLOX3vfWoj9A9PEnTfratQ/BcaJOuMhnkhjXvb2+FkY3VuHqtAGpTPmglFQ==
 
 js-cookie@^2.2.1:
   version "2.2.1"
@@ -2367,6 +2472,16 @@ json5@^2.2.3:
   resolved "http://npm.t.pt.miui.com/json5/-/json5-2.2.3.tgz"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
+jsonc-parser@^3.3.1:
+  version "3.3.1"
+  resolved "http://npm.t.pt.miui.com/jsonc-parser/-/jsonc-parser-3.3.1.tgz#f2a524b4f7fd11e3d791e559977ad60b98b798b4"
+  integrity sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==
+
+kleur@^3.0.3:
+  version "3.0.3"
+  resolved "http://npm.t.pt.miui.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
+  integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
 konva@^9.3.20:
   version "9.3.20"
   resolved "http://npm.t.pt.miui.com/konva/-/konva-9.3.20.tgz"
@@ -2405,6 +2520,14 @@ lodash@^4.17.21:
   version "4.17.21"
   resolved "http://npm.t.pt.miui.com/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+log-symbols@^6.0.0:
+  version "6.0.0"
+  resolved "http://npm.t.pt.miui.com/log-symbols/-/log-symbols-6.0.0.tgz#bb95e5f05322651cac30c0feb6404f9f2a8a9439"
+  integrity sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==
+  dependencies:
+    chalk "^5.3.0"
+    is-unicode-supported "^1.3.0"
 
 longest-streak@^3.0.0:
   version "3.1.0"
@@ -2813,6 +2936,11 @@ mime-types@^3.0.0, mime-types@^3.0.1:
   dependencies:
     mime-db "^1.54.0"
 
+mimic-function@^5.0.0:
+  version "5.0.1"
+  resolved "http://npm.t.pt.miui.com/mimic-function/-/mimic-function-5.0.1.tgz#acbe2b3349f99b9deaca7fb70e48b83e94e67076"
+  integrity sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==
+
 mimic-response@^2.0.0:
   version "2.1.0"
   resolved "http://npm.t.pt.miui.com/mimic-response/-/mimic-response-2.1.0.tgz"
@@ -2972,6 +3100,28 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
+onetime@^7.0.0:
+  version "7.0.0"
+  resolved "http://npm.t.pt.miui.com/onetime/-/onetime-7.0.0.tgz#9f16c92d8c9ef5120e3acd9dd9957cceecc1ab60"
+  integrity sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==
+  dependencies:
+    mimic-function "^5.0.0"
+
+ora@^8.2.0:
+  version "8.2.0"
+  resolved "http://npm.t.pt.miui.com/ora/-/ora-8.2.0.tgz#8fbbb7151afe33b540dd153f171ffa8bd38e9861"
+  integrity sha512-weP+BZ8MVNnlCm8c0Qdc1WSWq4Qn7I+9CJGm7Qali6g44e/PUzbjNqJX5NJ9ljlNMosfJvg1fKEGILklK9cwnw==
+  dependencies:
+    chalk "^5.3.0"
+    cli-cursor "^5.0.0"
+    cli-spinners "^2.9.2"
+    is-interactive "^2.0.0"
+    is-unicode-supported "^2.0.0"
+    log-symbols "^6.0.0"
+    stdin-discarder "^0.2.2"
+    string-width "^7.2.0"
+    strip-ansi "^7.1.0"
+
 parchment@^1.1.2, parchment@^1.1.4:
   version "1.1.4"
   resolved "http://npm.t.pt.miui.com/parchment/-/parchment-1.1.4.tgz"
@@ -3045,6 +3195,14 @@ prettier@3.4.2:
   version "3.4.2"
   resolved "http://npm.t.pt.miui.com/prettier/-/prettier-3.4.2.tgz"
   integrity sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==
+
+prompts@^2.4.2:
+  version "2.4.2"
+  resolved "http://npm.t.pt.miui.com/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
+  integrity sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==
+  dependencies:
+    kleur "^3.0.3"
+    sisteransi "^1.0.5"
 
 prop-types@^15.5.0, prop-types@^15.6.2:
   version "15.8.1"
@@ -3538,6 +3696,17 @@ react-fast-compare@^3.2.2:
   resolved "http://npm.t.pt.miui.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
+react-grab@^0.1.29:
+  version "0.1.29"
+  resolved "http://npm.t.pt.miui.com/react-grab/-/react-grab-0.1.29.tgz#17e9dcaf06a006263c99198f0c6f80e8c29a3154"
+  integrity sha512-s6CDIwjA0pzhCJqgFabM3GZ6m9vsmStOHopl7c8Xyx702QZ5ZXxOMRTpd2/7Gg+GC/1XwFmyLHwQiOCbUYIIYQ==
+  dependencies:
+    "@medv/finder" "^4.0.2"
+    "@react-grab/cli" "0.1.29"
+    bippy "^0.5.32"
+    element-source "^0.0.3"
+    solid-js "^1.9.10"
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "http://npm.t.pt.miui.com/react-is/-/react-is-16.13.1.tgz"
@@ -3695,6 +3864,14 @@ resize-observer-polyfill@^1.5.1:
   resolved "http://npm.t.pt.miui.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
+restore-cursor@^5.0.0:
+  version "5.1.0"
+  resolved "http://npm.t.pt.miui.com/restore-cursor/-/restore-cursor-5.1.0.tgz#0766d95699efacb14150993f55baf0953ea1ebe7"
+  integrity sha512-oMA2dcrw6u0YfxJQXm342bFKX/E4sG9rbTzO9ptUcR/e8A33cHuvStiYOwH7fszkZlZ1z/ta9AAoPk2F4qIOHA==
+  dependencies:
+    onetime "^7.0.0"
+    signal-exit "^4.1.0"
+
 rimraf@^3.0.2:
   version "3.0.2"
   resolved "http://npm.t.pt.miui.com/rimraf/-/rimraf-3.0.2.tgz"
@@ -3822,6 +3999,16 @@ send@^1.1.0, send@^1.2.0:
     range-parser "^1.2.1"
     statuses "^2.0.1"
 
+seroval-plugins@~1.5.0:
+  version "1.5.1"
+  resolved "http://npm.t.pt.miui.com/seroval-plugins/-/seroval-plugins-1.5.1.tgz#a0ebcaf43cb06ae0f33c777ebbd5e97223887ec6"
+  integrity sha512-4FbuZ/TMl02sqv0RTFexu0SP6V+ywaIe5bAWCCEik0fk17BhALgwvUDVF7e3Uvf9pxmwCEJsRPmlkUE6HdzLAw==
+
+seroval@~1.5.0:
+  version "1.5.1"
+  resolved "http://npm.t.pt.miui.com/seroval/-/seroval-1.5.1.tgz#e35a01bcb8172ddcef12ef424a170f3ad93f64f0"
+  integrity sha512-OwrZRZAfhHww0WEnKHDY8OM0U/Qs8OTfIDWhUD4BLpNJUfXK4cGmjiagGze086m+mhI+V2nD0gfbHEnJjb9STA==
+
 serve-static@^2.2.0:
   version "2.2.0"
   resolved "http://npm.t.pt.miui.com/serve-static/-/serve-static-2.2.0.tgz"
@@ -3919,6 +4106,11 @@ signal-exit@^3.0.0:
   resolved "http://npm.t.pt.miui.com/signal-exit/-/signal-exit-3.0.7.tgz"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
+signal-exit@^4.1.0:
+  version "4.1.0"
+  resolved "http://npm.t.pt.miui.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
+  integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
+
 simple-concat@^1.0.0:
   version "1.0.1"
   resolved "http://npm.t.pt.miui.com/simple-concat/-/simple-concat-1.0.1.tgz"
@@ -3933,6 +4125,16 @@ simple-get@^3.0.3:
     once "^1.3.1"
     simple-concat "^1.0.0"
 
+sisteransi@^1.0.5:
+  version "1.0.5"
+  resolved "http://npm.t.pt.miui.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
+  integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
+
+smol-toml@^1.6.0:
+  version "1.6.1"
+  resolved "http://npm.t.pt.miui.com/smol-toml/-/smol-toml-1.6.1.tgz#4fceb5f7c4b86c2544024ef686e12ff0983465be"
+  integrity sha512-dWUG8F5sIIARXih1DTaQAX4SsiTXhInKf1buxdY9DIg4ZYPZK5nGM1VRIYmEbDbsHt7USo99xSLFu5Q1IqTmsg==
+
 sockjs-client@^1.5.2:
   version "1.6.1"
   resolved "http://npm.t.pt.miui.com/sockjs-client/-/sockjs-client-1.6.1.tgz"
@@ -3943,6 +4145,15 @@ sockjs-client@^1.5.2:
     faye-websocket "^0.11.4"
     inherits "^2.0.4"
     url-parse "^1.5.10"
+
+solid-js@^1.9.10:
+  version "1.9.12"
+  resolved "http://npm.t.pt.miui.com/solid-js/-/solid-js-1.9.12.tgz#9bc014fe9fbfa590681dc9b4597927153e6bc713"
+  integrity sha512-QzKaSJq2/iDrWR1As6MHZQ8fQkdOBf8GReYb7L5iKwMGceg7HxDcaOHk0at66tNgn9U2U7dXo8ZZpLIAmGMzgw==
+  dependencies:
+    csstype "^3.1.0"
+    seroval "~1.5.0"
+    seroval-plugins "~1.5.0"
 
 source-map-js@^1.2.1:
   version "1.2.1"
@@ -4003,6 +4214,11 @@ statuses@2.0.1, statuses@^2.0.1:
   resolved "http://npm.t.pt.miui.com/statuses/-/statuses-2.0.1.tgz"
   integrity sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==
 
+stdin-discarder@^0.2.2:
+  version "0.2.2"
+  resolved "http://npm.t.pt.miui.com/stdin-discarder/-/stdin-discarder-0.2.2.tgz#390037f44c4ae1a1ae535c5fe38dc3aba8d997be"
+  integrity sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==
+
 string-convert@^0.2.0:
   version "0.2.1"
   resolved "http://npm.t.pt.miui.com/string-convert/-/string-convert-0.2.1.tgz"
@@ -4016,6 +4232,15 @@ string-convert@^0.2.0:
     emoji-regex "^8.0.0"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.1"
+
+string-width@^7.2.0:
+  version "7.2.0"
+  resolved "http://npm.t.pt.miui.com/string-width/-/string-width-7.2.0.tgz#b5bb8e2165ce275d4d43476dd2700ad9091db6dc"
+  integrity sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==
+  dependencies:
+    emoji-regex "^10.3.0"
+    get-east-asian-width "^1.0.0"
+    strip-ansi "^7.1.0"
 
 string_decoder@^1.1.1:
   version "1.3.0"
@@ -4038,6 +4263,13 @@ strip-ansi@^6.0.1:
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
   dependencies:
     ansi-regex "^5.0.1"
+
+strip-ansi@^7.1.0:
+  version "7.2.0"
+  resolved "http://npm.t.pt.miui.com/strip-ansi/-/strip-ansi-7.2.0.tgz#d22a269522836a627af8d04b5c3fd2c7fa3e32e3"
+  integrity sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==
+  dependencies:
+    ansi-regex "^6.2.2"
 
 style-to-js@^1.0.0:
   version "1.1.16"

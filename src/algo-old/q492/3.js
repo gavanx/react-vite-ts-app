@@ -1,25 +1,56 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
+var minOperations = function (s) {
+  const n = s.length
+  if (n === 1) {
+    return 0
+  } else if (n === 2) {
+    return s[0] > s[1] ? -1 : 0
+  } else {
+    if (s === s.split('').sort().join('')) {
+      return 0
+    }
+    let mn = [-1, 256]
+    let mx = [-1, -1]
+    let x
+    for (let i = 0; i < n; i++) {
+      x = s.charCodeAt(i)
+      if (mn[1] > x) {
+        mn = [i, x]
       }
-      ret[i][j] = max - min
+      if (mx[1] <= x) {
+        mx = [i, x]
+      }
+    }
+    mn = mn[0]
+    mx = mx[0]
+
+    if (mn === 0) {
+      if (mx === n - 1) {
+        return 1
+      } else if (mx > 0) {
+        return 1
+      }
+    } else if (mn === n - 1) {
+      if (mx === 0) {
+        return 2 + (s[mx] === s[n - 2] ? 0 : 1)
+      } else if (mx < n - 1) {
+        return 2
+      }
+    } else {
+      if (mx === 0) {
+        return 1 + (s[mx] === s[n - 1] ? 0 : 1)
+      } else if (mx === n - 1) {
+        return 1
+      } else {
+        return 2
+      }
     }
   }
-  return ret
+  return 0
 }
 
+console.log(minOperations('gfigi')) // 1
+console.log(minOperations('oool')) // 2
+console.log(minOperations('omo')) // 1
 
 
 const CASE_SLOW_MS = 20;
@@ -61,9 +92,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: ["dog"], expected: 1, comment: "// 输入：s = \"dog  输出：1" },
+  { args: ["card"], expected: 2, comment: "// 输入：s = \"card  输出：2" },
+  { args: ["gf"], expected: -1, comment: "// 输入：s = \"gf  输出：-1" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(minOperations, __lcExamples);

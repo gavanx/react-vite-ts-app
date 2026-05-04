@@ -1,23 +1,13 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
-      }
-      ret[i][j] = max - min
+var minimumIndex = function (capacity, itemSize) {
+  let ans = -1
+  let size = Infinity
+  for (let i = 0; i < capacity.length; i++) {
+    if (capacity[i] >= itemSize && size > capacity[i]) {
+      size = capacity[i]
+      ans = i
     }
   }
-  return ret
+  return ans
 }
 
 
@@ -61,9 +51,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[1, 5, 3, 7], 3], expected: 2, comment: "// 输入：capacity = [1,5,3,7], itemSize = 3  输出：2" },
+  { args: [[3, 5, 4, 3], 2], expected: 0, comment: "// 输入：capacity = [3,5,4,3], itemSize = 2  输出：0" },
+  { args: [[4], 5], expected: -1, comment: "// 输入：capacity = [4], itemSize = 5  输出：-1" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(minimumIndex, __lcExamples);

@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { Card, Cascader, Select, Space, Typography } from 'antd'
-
+if (process.env.NODE_ENV === 'development') {
+  import('react-grab')
+}
 const { Title } = Typography
 
 interface RegionOption {

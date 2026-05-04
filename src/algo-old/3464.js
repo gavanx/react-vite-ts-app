@@ -1,23 +1,65 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
-      }
-      ret[i][j] = max - min
+/**
+ * @param {number} side
+ * @param {number[][]} points
+ * @param {number} k
+ * @return {number}
+ */
+var maxDistance = function (side, points, k) {
+  const a = []
+  for (const [x, y] of points) {
+    if (x === 0) {
+      a.push(y)
+    } else if (y === side) {
+      a.push(side + x)
+    } else if (x === side) {
+      a.push(3 * side - y)
+    } else {
+      a.push(4 * side - x)
     }
   }
-  return ret
+  a.sort((a, b) => a - b)
+
+  const bisectLeft = (arr, target) => {
+    let left = 0,
+      right = arr.length
+    while (left < right) {
+      const mid = (left + right) >> 1
+      if (arr[mid] < target) left = mid + 1
+      else right = mid
+    }
+    return left
+  }
+
+  const check = (low) => {
+    const totalLen = 4 * side
+    for (const start of a) {
+      const end = start + totalLen - low
+      let cur = start
+      let ok = true
+      for (let i = 0; i < k - 1; i++) {
+        const j = bisectLeft(a, cur + low)
+        if (j === a.length || a[j] > end) {
+          ok = false
+          break
+        }
+        cur = a[j]
+      }
+      if (ok) return true
+    }
+    return false
+  }
+
+  let left = 1
+  let right = Math.floor((4 * side) / k) + 1
+  while (left + 1 < right) {
+    const mid = (left + right) >> 1
+    if (check(mid)) {
+      left = mid
+    } else {
+      right = mid
+    }
+  }
+  return left
 }
 
 
@@ -61,9 +103,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [2, [[0, 2], [2, 0], [2, 2], [0, 0]], 4], expected: 2, comment: "// 输入：side = 2, points = [[0,2],[2,0],[2,2],[0,0]], k = 4  输出：2" },
+  { args: [2, [[0, 0], [1, 2], [2, 0], [2, 2], [2, 1]], 4], expected: 1, comment: "// 输入：side = 2, points = [[0,0],[1,2],[2,0],[2,2],[2,1]], k = 4  输出：1" },
+  { args: [2, [[0, 0], [0, 1], [0, 2], [1, 2], [2, 0], [2, 2], [2, 1]], 5], expected: 1, comment: "// 输入：side = 2, points = [[0,0],[0,1],[0,2],[1,2],[2,0],[2,2],[2,1]], k = 5  输出：1" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(maxDistance, __lcExamples);

@@ -1,25 +1,16 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
-      }
-      ret[i][j] = max - min
+var findDifferentBinaryString = function (nums) {
+  const set = new Set()
+  for (const x of nums) {
+    set.add(parseInt(x, 2))
+  }
+  const n = nums[0].length
+  for (let i = 0; i < (1 << n); i++) {
+    if (!set.has(i)) {
+      return i.toString(2).padStart(n, '0')
     }
   }
-  return ret
 }
-
+console.log(findDifferentBinaryString(['0']))
 
 
 const CASE_SLOW_MS = 20;
@@ -61,9 +52,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [["01", "10"]], expected: 11, comment: "// 输入：nums = [\"01\",\"10\"]  输出：11" },
+  { args: [["00", "01"]], expected: 11, comment: "// 输入：nums = [\"00\",\"01\"]  输出：11" },
+  { args: [["111", "011", "001"]], expected: 101, comment: "// 输入：nums = [\"111\",\"011\",\"001\"]  输出：101" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(findDifferentBinaryString, __lcExamples);

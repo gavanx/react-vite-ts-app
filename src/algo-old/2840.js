@@ -1,23 +1,26 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
-      }
-      ret[i][j] = max - min
+var checkStrings = function (s1, s2) {
+  const map0 = new Map()
+  const map1 = new Map()
+  for (let i = 0; i < s1.length; i++) {
+    if (i % 2 == 0) {
+      map0.set(s1[i], (map0.get(s1[i]) || 0) + 1)
+      map0.set(s2[i], (map0.get(s2[i]) || 0) - 1)
+    } else {
+      map1.set(s1[i], (map1.get(s1[i]) || 0) + 1)
+      map1.set(s2[i], (map1.get(s2[i]) || 0) - 1)
     }
   }
-  return ret
+  for (const v of map0.values()) {
+    if (v !== 0) {
+      return false
+    }
+  }
+  for (const v of map1.values()) {
+    if (v !== 0) {
+      return false
+    }
+  }
+  return true
 }
 
 
@@ -61,9 +64,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: ["abcdba", "cabdab"], expected: true, comment: "// 输入：s1 = \"abcdba\", s2 = \"cabdab  输出：true" },
+  { args: ["abe", "bea"], expected: false, comment: "// 输入：s1 = \"abe\", s2 = \"bea  输出：false" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(checkStrings, __lcExamples);

@@ -1,25 +1,50 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
+/**
+ * @param {number[][]} mat
+ * @param {number[][]} target
+ * @return {boolean}
+ */
+var findRotation = function (mat, target) {
+  for (let i = 0; i < 4; i++) {
+    if (arraysDeepEquals(mat, target)) {
+      return true;
+    }
+    rotate(mat);
+  }
+  return false;
+};
 
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
+function arraysDeepEquals(mat, target) {
+  const n = mat.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (mat[i][j] !== target[i][j]) {
+        return false;
       }
-      ret[i][j] = max - min
     }
   }
-  return ret
+  return true;
 }
 
+function rotate(matrix) {
+  const n = matrix.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+    }
+    for (let j = 0; j < n / 2; j++) {
+      [matrix[i][j], matrix[i][n - 1 - j]] = [matrix[i][n - 1 - j], matrix[i][j]];
+    }
+  }
+}
+
+// 测试示例
+const mat1 = [[0, 1], [1, 0]];
+const target1 = [[1, 0], [0, 1]];
+console.log(findRotation(mat1, target1)); // 输出: true
+
+const mat2 = [[0, 0, 0], [0, 1, 0], [1, 1, 1]];
+const target2 = [[1, 1, 1], [0, 1, 0], [0, 0, 0]];
+console.log(findRotation(mat2, target2)); // 输出: true
 
 
 const CASE_SLOW_MS = 20;
@@ -61,9 +86,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[[0, 1], [1, 0]], [[1, 0], [0, 1]]], expected: true, comment: "// 输入：mat = [[0,1],[1,0]], target = [[1,0],[0,1]]  输出：true" },
+  { args: [[[0, 1], [1, 1]], [[1, 0], [0, 1]]], expected: false, comment: "// 输入：mat = [[0,1],[1,1]], target = [[1,0],[0,1]]  输出：false" },
+  { args: [[[0, 0, 0], [0, 1, 0], [1, 1, 1]], [[1, 1, 1], [0, 1, 0], [0, 0, 0]]], expected: true, comment: "// 输入：mat = [[0,0,0],[0,1,0],[1,1,1]], target = [[1,1,1],[0,1,0],[0,0,0]]  输出：true" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(findRotation, __lcExamples);

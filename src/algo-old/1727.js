@@ -1,25 +1,28 @@
-import { MaxPriorityQueue, MinPriorityQueue } from 'datastructures-js'
-
-var minAbsDiff = function (grid, k) {
-  const m = grid.length
-  const n = grid[0].length
-  let ret = new Array(m - k + 1).fill(0).map(() => new Array(n - k + 1))
-  for (let i = 0; i <= m - k; i++) {
-    for (let j = 0; j <= n - k; j++) {
-      let max = -Infinity
-      let min = Infinity
-      for (let x = i; x < i + k; x++) {
-        for (let y = j; y < j + k; y++) {
-          max = Math.max(max, grid[x][y])
-          min = Math.min(min, grid[x][y])
-        }
+var largestSubmatrix = function (matrix) {
+  const m = matrix.length
+  const n = matrix[0].length
+  const h = new Array(n).fill(0)
+  for (const row of matrix) {
+    for (let j = 0; j < n; j++) {
+      if (row[j] === 0) {
+        h[j] = 0
+      } else {
+        h[j] += 1
       }
-      ret[i][j] = max - min
     }
   }
-  return ret
+  h.sort((a, b) => b - a)
+  let ans = 0
+  for (let j = 0; j < n; j++) {
+    if (h[j] === 0) {
+      break
+    }
+    ans = Math.max(ans, (j + 1) * h[j])
+  }
+  return ans
 }
 
+console.log(largestSubmatrix([[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,1,0,1,1,0],[0,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,0,1,1,0,0,1,1,0,1,1,1,0,0,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1],[1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1],[1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,0,1,0,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,1],[1,1,1,0,0,1,1,0,1,1,1,0,1,0,1,1,0,1,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,0]]))
 
 
 const CASE_SLOW_MS = 20;
@@ -61,9 +64,10 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[[1, 8], [3, -2]], 2], expected: [[2]], comment: "// 输入：grid = [[1,8],[3,-2]], k = 2  输出：[[2]]" },
-  { args: [[[3, -1]], 1], expected: [[0, 0]], comment: "// 输入：grid = [[3,-1]], k = 1  输出：[[0,0]]" },
-  { args: [[[1, -2, 3], [2, 3, 5]], 2], expected: [[1, 2]], comment: "// 输入：grid = [[1,-2,3],[2,3,5]], k = 2  输出：[[1,2]]" },
+  { args: [[[0, 0, 1], [1, 1, 1], [1, 0, 1]]], expected: 4, comment: "// 输入：matrix = [[0,0,1],[1,1,1],[1,0,1]]  输出：4" },
+  { args: [[[1, 0, 1, 0, 1]]], expected: 3, comment: "// 输入：matrix = [[1,0,1,0,1]]  输出：3" },
+  { args: [[[1, 1, 0], [1, 0, 1]]], expected: 2, comment: "// 输入：matrix = [[1,1,0],[1,0,1]]  输出：2" },
+  { args: [[[0, 0], [0, 0]]], expected: 0, comment: "// 输入：matrix = [[0,0],[0,0]]  输出：0" },
 ];
 
-__lcRunExamples(minAbsDiff, __lcExamples);
+__lcRunExamples(largestSubmatrix, __lcExamples);
