@@ -1,30 +1,20 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
+var passwordStrength = function (password) {
+  const s1 = new Set()
+  const s2 = new Set()
+  const s3 = new Set()
+  const s4 = new Set()
+  for (const c of password) {
+    if (c >= 'a' && c <= 'z') {
+      s1.add(c)
+    } else if (c >= 'A' && c <= 'Z') {
+      s2.add(c)
+    } else if (c >= '0' && c <= '9') {
+      s3.add(c)
+    } else if ('!@#$'.includes(c)) {
+      s4.add(c)
     }
   }
-  return ans
+  return s1.size + 2 * s2.size + 3 * s3.size + 5 * s4.size
 }
 
 
@@ -68,8 +58,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: ["aA1!"], expected: 11, comment: "// 输入：password = \"aA1!  输出：11" },
+  { args: ["bbB11#"], expected: 11, comment: "// 输入：password = \"bbB11#  输出：11" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(passwordStrength, __lcExamples);

@@ -1,28 +1,7 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+var maxScore = function (n, edges) {
+  let ans = ((2 * n * n + 5 * n - 6) * (n - 1)) / 6
+  if (edges.length === n) {
+    ans += 2
   }
   return ans
 }
@@ -68,8 +47,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [4, [[0, 1], [1, 2], [2, 3]]], expected: 23, comment: "// 输入：n = 4, edges = [[0,1],[1,2],[2,3]]  输出：23" },
+  { args: [6, [[0, 3], [4, 5], [2, 0], [1, 3], [2, 4], [1, 5]]], expected: 82, comment: "// 输入：n = 6, edges = [[0,3],[4,5],[2,0],[1,3],[2,4],[1,5]]  输出：82" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(maxScore, __lcExamples);

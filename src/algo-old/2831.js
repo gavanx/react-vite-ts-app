@@ -1,28 +1,19 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
+var longestEqualSubarray = function (nums, k) {
+  let l = 0,
+    x
   const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
+  let mx = 0,
+    ans = 0
+  for (let i = 0; i < nums.length; i++) {
+    x = nums[i]
+    map.set(x, (map.get(x) || 0) + 1)
+    mx = Math.max(mx, map.get(x))
+    while (l < i && i - l + 1 - mx > k) {
+      x = nums[l]
+      map.set(x, (map.get(x) || 0) - 1)
+      l++
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    ans = Math.max(ans, mx)
   }
   return ans
 }
@@ -68,8 +59,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[1, 3, 2, 3, 1, 3], 3], expected: 3, comment: "// 输入：nums = [1,3,2,3,1,3], k = 3  输出：3" },
+  { args: [[1, 1, 2, 2, 1, 1], 2], expected: 4, comment: "// 输入：nums = [1,1,2,2,1,1], k = 2  输出：4" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(longestEqualSubarray, __lcExamples);

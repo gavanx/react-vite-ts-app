@@ -1,28 +1,17 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
+var beautifulBouquet = function (flowers, cnt) {
+  const n = flowers.length
   let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
+  let l = 0,
+    map = new Map()
+  for (let i = 0; i < n; i++) {
+    const f = flowers[i]
+    map.set(f, (map.get(f) || 0) + 1)
+    while (map.get(f) > cnt && l <= i) {
+      const f2 = flowers[l]
+      map.set(f2, (map.get(f2) || 0) - 1)
+      l++
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    ans += i - l + 1
   }
   return ans
 }
@@ -68,8 +57,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[1, 2, 3, 2], 1], expected: 8, comment: "// 输入：flowers = [1,2,3,2], cnt = 1  输出：8" },
+  { args: [[5, 3, 3, 3], 2], expected: 8, comment: "// 输入：flowers = [5,3,3,3], cnt = 2  输出：8" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(beautifulBouquet, __lcExamples);

@@ -1,32 +1,24 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
+var generateValidStrings = function (n, k) {
+  const mx = 2 ** n
+  let ans = []
+  for (let i = 0; i < mx; i++) {
+    const s = i.toString(2).padStart(n, '0')
+    if (!s.includes('11')) {
+      let c = 0
+      for (let j = 0; j < s.length; j++) {
+        if (s[j] === '1') {
+          c += j
         }
       }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
+      if (c <= k) {
+        ans.push(s)
+      }
     }
   }
   return ans
 }
 
+console.log(generateValidStrings(3, 1))
 
 
 const CASE_SLOW_MS = 20;
@@ -68,8 +60,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [3, 1], expected: ["000", "010", "100"], comment: "// 输入：n = 3, k = 1  输出：[\"000\",\"010\",\"100\"]" },
+  { args: [1, 0], expected: ["0", "1"], comment: "// 输入：n = 1, k = 0  输出：[\"0\",\"1\"]" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(generateValidStrings, __lcExamples);

@@ -1,31 +1,32 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
+var maxJumps = function (arr, d) {
+  const n = arr.length
+  const dfs = (i) => {
+    let res = 1
+    for (let j = i - 1; j >= Math.max(0, i - d); j--) {
+      if (arr[i] > arr[j]) {
+        res = Math.max(res, dfs(j) + 1)
+      } else {
+        break
       }
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
+    for (let j = i + 1; j <= Math.min(i + d, n - 1); j++) {
+      if (arr[i] > arr[j]) {
+        res = Math.max(res, dfs(j) + 1)
+      } else {
+        break
+      }
     }
+    return res
+  }
+  let ans = 0
+  for (let i = 0; i < n; i++) {
+    ans = Math.max(ans, dfs(i))
   }
   return ans
 }
+
+console.log(maxJumps([40, 98, 14, 22, 45, 71, 20, 19, 26, 9, 29, 64, 76, 66, 32, 79, 14, 83, 62, 39, 69, 25, 92, 79, 70, 34, 22, 19, 41, 26, 5, 82, 38], 6))
+console.log(maxJumps([6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12], 2))
 
 
 
@@ -68,8 +69,11 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12], 2], expected: 4, comment: "// 输入：arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2  输出：4" },
+  { args: [[3, 3, 3, 3, 3], 3], expected: 1, comment: "// 输入：arr = [3,3,3,3,3], d = 3  输出：1" },
+  { args: [[7, 6, 5, 4, 3, 2, 1], 1], expected: 7, comment: "// 输入：arr = [7,6,5,4,3,2,1], d = 1  输出：7" },
+  { args: [[7, 1, 7, 1, 7, 1], 2], expected: 2, comment: "// 输入：arr = [7,1,7,1,7,1], d = 2  输出：2" },
+  { args: [[66], 1], expected: 1, comment: "// 输入：arr = [66], d = 1  输出：1" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(maxJumps, __lcExamples);

@@ -1,33 +1,23 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
+var longestOnes = function (nums, k) {
+  let l = 0,
+    c = 0,
+    ans = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      c += 1
+    }
+    while (l <= i && c > k) {
+      if (nums[l] === 0) {
+        c -= 1
       }
+      l++
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    ans = Math.max(ans, i - l + 1)
   }
   return ans
 }
 
-
+console.log(longestOnes([0, 0, 0, 0], 0))
 
 const CASE_SLOW_MS = 20;
 const TOTAL_SLOW_MS = 100;
@@ -68,8 +58,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2], expected: 6, comment: "// 输入：nums = [1,1,1,0,0,0,1,1,1,1,0], K = 2  输出：6" },
+  { args: [[0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3], expected: 10, comment: "// 输入：nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], K = 3  输出：10" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(longestOnes, __lcExamples);

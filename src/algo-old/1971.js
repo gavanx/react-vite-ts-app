@@ -1,30 +1,25 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
+var validPath = function (n, edges, source, destination) {
+  const visited = new Array(n).fill(false)
+  const g = new Array(n).fill(0).map(() => [])
+  for (let [u, v] of edges) {
+    g[u].push(v)
+    g[v].push(u)
+  }
+  const dfs = (i) => {
+    visited[i] = true
+    for (const j of g[i]) {
+      if (j === destination) {
+        return true
+      }
+      if (!visited[j]) {
+        if (dfs(j)) {
+          return true
         }
       }
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    return false
   }
-  return ans
+  return dfs(source)
 }
 
 
@@ -68,8 +63,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [3, [[0, 1], [1, 2], [2, 0]], 0, 2], expected: true, comment: "// 输入：n = 3, edges = [[0,1],[1,2],[2,0]], source = 0, destination = 2  输出：true" },
+  { args: [6, [[0, 1], [0, 2], [3, 5], [5, 4], [4, 3]], 0, 5], expected: false, comment: "// 输入：n = 6, edges = [[0,1],[0,2],[3,5],[5,4],[4,3]], source = 0, destination = 5  输出：false" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(validPath, __lcExamples);

@@ -1,28 +1,41 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
+var minJumps = function (arr) {
+  const n = arr.length
   const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
+  for (let i = 0; i < n; i++) {
+    if (map.has(arr[i])) {
+      map.get(arr[i]).add(i)
+    } else {
+      map.set(arr[i], new Set([i]))
+    }
+  }
+  const vis = new Array(n).fill(false)
+  let q = [0]
+  let ans = 0
+  while (q.length > 0) {
+    const q2 = []
+    for (const i of q) {
+      vis[i] = true
+      if (i == n - 1) {
+        return ans
+      }
+      if (i + 1 < n && !vis[i + 1]) {
+        q2.push(i + 1)
+      }
+      if (i - 1 >= 0 && !vis[i - 1]) {
+        q2.push(i - 1)
+      }
+      const s = map.get(arr[i])
+      if (s && s.size > 0) {
+        for (const j of s) {
+          if (!vis[j]) {
+            q2.push(j)
+          }
         }
       }
+      map.delete(arr[i])
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    ans += 1
+    q = q2
   }
   return ans
 }
@@ -68,8 +81,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[100, -23, -23, 404, 100, 23, 23, 23, 3, 404]], expected: 3, comment: "// 输入：arr = [100,-23,-23,404,100,23,23,23,3,404]  输出：3" },
+  { args: [[7]], expected: 0, comment: "// 输入：arr = [7]  输出：0" },
+  { args: [[7, 6, 9, 6, 9, 6, 9, 7]], expected: 1, comment: "// 输入：arr = [7,6,9,6,9,6,9,7]  输出：1" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(minJumps, __lcExamples);

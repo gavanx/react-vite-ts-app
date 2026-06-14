@@ -1,28 +1,10 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
+var minimumEffort = function (tasks) {
+  tasks = tasks.sort((a, b) => b[1] - b[0] - (a[1] - a[0]))
+  let s = 0
   let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+  for (const t of tasks) {
+    ans = Math.max(ans, s + t[1])
+    s += t[0]
   }
   return ans
 }
@@ -68,8 +50,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[[1, 2], [2, 4], [4, 8]]], expected: 8, comment: "// 输入：tasks = [[1,2],[2,4],[4,8]]  输出：8" },
+  { args: [[[1, 3], [2, 4], [10, 11], [10, 12], [8, 9]]], expected: 32, comment: "// 输入：tasks = [[1,3],[2,4],[10,11],[10,12],[8,9]]  输出：32" },
+  { args: [[[1, 7], [2, 8], [3, 9], [4, 10], [5, 11], [6, 12]]], expected: 27, comment: "// 输入：tasks = [[1,7],[2,8],[3,9],[4,10],[5,11],[6,12]]  输出：27" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(minimumEffort, __lcExamples);

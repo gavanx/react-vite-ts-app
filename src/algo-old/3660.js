@@ -1,28 +1,14 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+var maxValue = function (nums) {
+  const n = nums.length
+  const preMax = new Array(n).fill(-Infinity)
+  for (let i = 0; i < n; i++) {
+    preMax[i] = Math.max(nums[i], preMax[i - 1] || -Infinity)
+  }
+  const ans = new Array(n)
+  let sufMin = Infinity
+  for (let i = n - 1; i >= 0; i--) {
+    ans[i] = preMax[i] <= sufMin ? preMax[i] : ans[i + 1]
+    sufMin = Math.min(sufMin, nums[i])
   }
   return ans
 }
@@ -68,8 +54,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[2, 1, 3]], expected: [2, 2, 3], comment: "// 输入：nums = [2,1,3]  输出：[2,2,3]" },
+  { args: [[2, 3, 1]], expected: [3, 3, 3], comment: "// 输入：nums = [2,3,1]  输出：[3,3,3]" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(maxValue, __lcExamples);

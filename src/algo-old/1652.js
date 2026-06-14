@@ -1,30 +1,40 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+var decrypt = function (code, k) {
+  const n = code.length
+  if (k == 0) {
+    return new Array(n).fill(0)
   }
-  return ans
+  let s = 0,
+    c = 0
+  if (k > 0) {
+    let i = 1
+    while (c < k) {
+      c++
+      s += code[i]
+      i = (i + 1) % n
+    }
+    const ans = []
+    for (let i = 0; i < n; i++) {
+      ans.push(s)
+      s -= code[i + 1]
+      s += code[(i + k + 1) % n]
+    }
+    return ans
+  } else {
+    let i = n - 1
+    k = -k
+    while (c < k) {
+      c++
+      s += code[i]
+      i = (i - 1 + n) % n
+    }
+    const ans = []
+    for (let i = 0; i < n; i++) {
+      ans.push(s)
+      s += code[i]
+      s -= code[(i - k + n) % n]
+    }
+    return ans
+  }
 }
 
 
@@ -68,8 +78,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[5, 7, 1, 4], 3], expected: [12, 10, 16, 13], comment: "// 输入：code = [5,7,1,4], k = 3  输出：[12,10,16,13]" },
+  { args: [[1, 2, 3, 4], 0], expected: [0, 0, 0, 0], comment: "// 输入：code = [1,2,3,4], k = 0  输出：[0,0,0,0]" },
+  { args: [[2, 4, 9, 3], -2], expected: [12, 5, 6, 13], comment: "// 输入：code = [2,4,9,3], k = -2  输出：[12,5,6,13]" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(decrypt, __lcExamples);

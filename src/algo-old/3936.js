@@ -1,32 +1,20 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
+var minimumSwaps = function (nums) {
+  const n = nums.length
+  let last = n - 1
   let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
-    }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
+  for (let i = 0; i < n; i++) {
+    if (nums[i] === 0 && nums[last] !== 0 && i < last) {
+      nums[i] = nums[last]
+      nums[last] = 0
+      last--
+      ans++
     }
   }
   return ans
 }
 
+
+console.log(minimumSwaps([0, 0, 56, 31]))
 
 
 const CASE_SLOW_MS = 20;
@@ -68,8 +56,9 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: [[0, 1, 0, 3, 12]], expected: 2, comment: "// 输入：nums = [0,1,0,3,12]  输出：2" },
+  { args: [[0, 1, 0, 2]], expected: 1, comment: "// 输入：nums = [0,1,0,2]  输出：1" },
+  { args: [[1, 2, 0]], expected: 0, comment: "// 输入：nums = [1,2,0]  输出：0" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(minimumSwaps, __lcExamples);

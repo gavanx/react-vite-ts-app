@@ -1,28 +1,17 @@
-var minArrivalsToDiscard = function (arrivals, w, m) {
-  let ans = 0
-  const set = new Set()
-  const map = new Map()
-  let l
-  for (let i = 0; i < arrivals.length; i++) {
-    if (i >= w) {
-      l = i - w
-      if (!set.has(l)) {
-        const v = arrivals[l]
-        const c = map.get(v)
-        if (c > 1) {
-          map.set(v, c - 1)
-        } else {
-          map.delete(v)
-        }
-      }
+var numberOfSubstrings = function (s, k) {
+  let l = 0,
+    ans = 0
+  let map = new Map()
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i]
+    map.set(c, (map.get(c) || 0) + 1)
+    let update = false
+    while (map.get(c) >= k && l <= i) {
+      const c2 = s[l]
+      map.set(c2, (map.get(c2) || 0) - 1)
+      l++
     }
-    const v = arrivals[i]
-    if (map.get(v) >= m) {
-      ans += 1
-      set.add(i)
-    } else {
-      map.set(v, (map.get(v) || 0) + 1)
-    }
+    ans += l
   }
   return ans
 }
@@ -68,8 +57,8 @@ function __lcRunExamples(fn, cases) {
 }
 
 const __lcExamples = [
-  { args: [[1, 2, 1, 3, 1], 4, 2], expected: 0, comment: "// 输入：arrivals = [1,2,1,3,1], w = 4, m = 2  输出：0" },
-  { args: [[1, 2, 3, 3, 3, 4], 3, 2], expected: 1, comment: "// 输入：arrivals = [1,2,3,3,3,4], w = 3, m = 2  输出：1" },
+  { args: ["abacb", 2], expected: 4, comment: "// 输入：s = \"abacb\", k = 2  输出：4" },
+  { args: ["abcde", 1], expected: 15, comment: "// 输入：s = \"abcde\", k = 1  输出：15" },
 ];
 
-__lcRunExamples(minArrivalsToDiscard, __lcExamples);
+__lcRunExamples(numberOfSubstrings, __lcExamples);
